@@ -43,6 +43,7 @@ header.hero { padding-block: 72px 48px; }
 h1 { font-size: clamp(36px, 6vw, 52px); line-height: 1.15; margin: 10px 0 18px; letter-spacing: -.02em; }
 .hook { font-size: clamp(18px, 2.4vw, 22px); color: var(--body); max-width: 720px; margin: 0; }
 .hook b { color: var(--ink); }
+.summary { color: var(--body); max-width: 760px; margin: 16px 0 0; }
 .points { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; }
 .points li { display: flex; gap: 10px; align-items: baseline; color: var(--ink); font-weight: 600; margin: 0; }
 .points li span { color: var(--accent); font-weight: 800; }
@@ -103,6 +104,9 @@ tr.now td { background: var(--accent-soft); }
 .carry { border-left: 3px solid var(--hl); padding: 12px 16px; background: var(--bg2); border-radius: 0 10px 10px 0; margin-top: 24px; }
 .carry .k { font-size: 12.5px; font-weight: 800; color: var(--hl); }
 .carry p { margin: 2px 0 0; color: var(--ink); }
+.rs { border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin: 14px 0 18px; display: grid; gap: 6px; }
+.rs div { color: var(--ink); font-size: 15px; line-height: 1.6; }
+.rs span { display: inline-block; min-width: 64px; font-size: 12.5px; font-weight: 800; color: var(--accent); margin-right: 8px; }
 .note { font-size: 13px; color: var(--mute); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -149,10 +153,11 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <div class="kicker">PRODUCT OWNER · 바이오 × IT 서비스 기획</div>
     <h1>유창훈</h1>
     <p class="hook"><b>바이오 R&amp;D 6년, 바이오 IT 서비스 기획 6년.</b><br>도메인 전문가의 문제를 제품으로 바꾸는 12년차 PO입니다.</p>
+    <p class="summary">진단 시약 연구원 200여 명이 쓰는 유전자 분석 플랫폼의 클라우드 전환 · 런칭을 총괄해 대용량 분석 처리시간을 80% 이상 단축했고, AI 업무 체계를 팀에 도입해 R&amp;D 총괄 포상을 받았습니다. 진단 제품 개발자로 식약처 인허가 4건 · 임상 2건을 경험해, 의료 · 바이오 전문가와 같은 언어로 요구사항을 정의합니다.</p>
     <ul class="points">
-      <li><span>01</span>연구원용 분석 SW 클라우드 전환 · 런칭 총괄</li>
-      <li><span>02</span>AI 업무 자동화로 팀 생산성 개선 — 팀 공용 메모리 · 스킬 체계</li>
-      <li><span>03</span>진단 제품 개발자 출신 — 식약처 인허가 4건 · 임상 2건</li>
+      <li><span>01</span>연구원용 분석 플랫폼 클라우드 전환 · 런칭 총괄 — 처리시간 80%+ 단축, 인력 30% 감소에도 일정 준수</li>
+      <li><span>02</span>AI 업무 자동화로 팀 생산성 개선 — 신규 팀원 업무 환경 셋업 30분, 2026 R&amp;D 총괄 포상</li>
+      <li><span>03</span>진단 제품 개발 — 식약처 인허가 4건 · 해외 임상 2건 · 특허 6건</li>
     </ul>
 
     <div class="kpis">
@@ -186,11 +191,14 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     </div>
     <div class="bridge">진단 제품을 만들며 <b>같은 시약도 분석 알고리즘과 소프트웨어에 따라 결과가 달라진다</b>는 것을 직접 겪었습니다. 그래서 연구원의 언어를 아는 기획자로 자리를 옮겼고, 지금은 그 언어를 개발자가 구현할 수 있는 요구사항과 검증 기준으로 옮기는 일을 합니다.</div>
 
-    <h4>이런 일을 잘합니다</h4>
+    <h4>핵심 역량</h4>
     <div class="grid3">
-      <div class="card"><div class="t">도메인을 아는 기획</div><p>진단 제품 개발 · 인허가 · 임상을 직접 해 본 경험으로, 의료 · 바이오 전문가의 요구를 기획 언어로 옮깁니다.</p></div>
-      <div class="card"><div class="t">검증으로 결정하는 실행</div><p>런칭 여부를 의견이 아니라 검증 결과로 판단합니다. 합격 기준을 먼저 정하고 결과로 결정합니다.</p></div>
-      <div class="card"><div class="t">팀과 도구를 함께 키우는 리딩</div><p>노하우를 개인이 아니라 팀의 자산으로 만듭니다. AI 도구를 팀 인프라로 설계해 업무 수준을 끌어올립니다.</p></div>
+      <div class="card"><div class="t">Product Management</div><p>요구사항 분석 · 우선순위, 화면 기획 · IA, 백로그 · 스크럼 운영</p></div>
+      <div class="card"><div class="t">클라우드 서비스 기획 · 런칭</div><p>설치형 → 웹 전환, 단계별 런칭 검증, 사용자 전환</p></div>
+      <div class="card"><div class="t">AI 업무 자동화 (AX)</div><p>팀 공용 메모리 · 스킬 체계, RAG · 에이전트 기반 사내 플랫폼</p></div>
+      <div class="card"><div class="t">Cross-functional 협업</div><p>연구원 · 개발 · 인프라 · 외주사 조율, 경영진 보고 · 설득</p></div>
+      <div class="card"><div class="t">의료 · 바이오 도메인</div><p>분자진단, 식약처 인허가 · 임상, 국제 표준 기반 성능 검증</p></div>
+      <div class="card"><div class="t">검증으로 결정하는 실행</div><p>합격 기준을 먼저 정하고, 런칭 여부를 검증 결과로 판단</p></div>
     </div>
   </div>
 </section>
@@ -210,6 +218,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <div class="kicker">씨젠 ① · 2022.01 – 2026.10</div>
     <h2>사내 in-silico 설계 · 분석 플랫폼 클라우드 전환 · 런칭</h2>
     <div class="meta"><span class="tag">PO (2022 – 2025)</span><span class="tag">팀장 (2024 – )</span><span class="tag">프로젝트 총괄 (2025.11 – )</span><span class="tag">48명 · 3개 팀 협업</span></div>
+    <div class="rs"><div><span>역할</span>PO → 프로젝트 총괄 (참여 인력 48명 · 3개 팀 협업)</div><div><span>주요성과</span>대용량 분석 처리시간 80% 단축(18시간 → 3시간 이내) · 부하 테스트 성공률 98.4% · 인력 30% 감소에도 계획한 날짜에 런칭</div></div>
     <div class="q"><div class="k">질문</div><p>연구원이 더 편하게 쓰고, 더 빨리 결과를 받고, 회사는 합리적인 비용으로 운영하는 플랫폼을 어떻게 만들 것인가</p></div>
 
     <h4>어떤 서비스인가</h4>
@@ -278,7 +287,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
   <div class="wrap">
     <div class="kicker">씨젠 ② · 2024.01 – 현재</div>
     <h2>웹기획팀 리딩 · 육성 — AX 도입과 사내 웹기획 업무 통합</h2>
-    <div class="meta"><span class="tag">팀장 · 6명</span><span class="tag">Scrum · Azure DevOps</span><span class="tag">Claude Code · RAG</span><span class="tag">2026 R&amp;D 총괄 포상</span></div>
+    <div class="meta"><span class="tag">팀장 · 팀원 10명</span><span class="tag">Scrum · Azure DevOps</span><span class="tag">Claude Code · RAG</span><span class="tag">2026 R&amp;D 총괄 포상</span></div>
+    <div class="rs"><div><span>역할</span>웹기획팀 팀장 (팀원 10명)</div><div><span>주요성과</span>신규 팀원 업무 환경 셋업 30분 · 팀원이 자발적으로 만든 자동화 도구 4종 · 2026 R&amp;D 총괄 포상</div></div>
     <div class="q"><div class="k">질문</div><p>바이오 전공자 중심의 팀이, 사람마다 다른 결과가 아니라 같은 수준의 기획 산출물을 낼 수 있을까</p></div>
 
     <h4>팀 관리 — 스크럼과 Azure DevOps</h4>
@@ -343,6 +353,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <div class="kicker">씨젠 ③ · 2020.06 – 현재</div>
     <h2>연구원 지원을 위한 in-silico 운영 · 대응 (COVID-19 · 엠폭스 등)</h2>
     <div class="meta"><span class="tag">운영 · 기획 · 데이터 분석</span><span class="tag">2024 R&amp;D 총괄 포상</span></div>
+    <div class="rs"><div><span>역할</span>플랫폼 운영 · 사용자(진단시약 연구원)와 개발자(SW연구소) 사이 소통 창구</div><div><span>주요성과</span>엠폭스 긴급 개발 지원으로 제품 후보 15개 중 10개 선별 · 데이터 누락 선제 발견으로 2024 R&amp;D 총괄 포상 · 사후관리 문서 35개 제품 5일 만에 90% 완료</div></div>
     <div class="q"><div class="k">질문</div><p>연구원(사용자)과 개발자 사이에서, 서로의 언어를 어떻게 옮길 것인가</p></div>
     <p>기존 설치형 플랫폼을 운영하며 사용자(진단 시약 연구원)와 개발자(SW연구소) 사이의 소통 창구 역할을 맡았습니다. 도구를 쓰는 사람의 자리에서 일한 이 경험이 이후 도구를 정의하는 기획의 바탕이 됐습니다.</p>
 
@@ -363,7 +374,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
         </ul>
       </div>
       <div class="card">
-        <div class="t">감염병 대응 — 엠폭스 23일 긴급 지원 (2024)</div>
+        <div class="t">감염병 대응 — 엠폭스 긴급 개발 지원 (2024 · 23일)</div>
         <ul>
           <li>개발팀과 실시간 채널 운영 · 최신 유전체 데이터를 직접 수집해 분석 기준 데이터를 3일 간격으로 갱신 배포</li>
           <li>제품 후보 15개 특이성 분석 → 제품화 가능한 <b>10개 선별</b></li>
@@ -399,6 +410,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
   <div class="wrap">
     <div class="kicker">프로지니어(주) · 2020.01 – 2020.06 · 과장</div>
     <h2>핵산 구조 기반 신규 진단기술 PoC — 암 바이오마커 검출</h2>
+    <div class="rs"><div><span>역할</span>신규 진단기술 개념 검증(PoC) 담당</div><div><span>주요성과</span>임상 적용 가능성을 데이터로 판단(No-Go) · 대안 컨셉 2종(bDNA · Hybrid Capture) 설계</div></div>
     <div class="q"><div class="k">질문</div><p>PCR 없이 DNA 나노구조와 형광 신호만으로 암을 찾아낼 수 있는가</p></div>
     <p>혈액이나 조직 속 암 바이오마커(miRNA, 간암 · 대장암)를 PCR 증폭 없이 DNA 나노구조와 형광 신호만으로 검출하는 신규 진단기술의 개념 검증(PoC)을 맡았습니다.</p>
     <ul>
@@ -413,8 +425,9 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
 <!-- Rollingstone freelance -->
 <section class="ch" id="b2">
   <div class="wrap">
-    <div class="kicker">롤링스톤(주) · 2018.07 – 2019.08 · 프리랜서</div>
+    <div class="kicker">롤링스톤(주) (구. 미코바이오메드) · 2018.07 – 2019.08 · 프리랜서</div>
     <h2>수입 의존 진단 핵심 원료의 자체 생산 기술 개발</h2>
+    <div class="rs"><div><span>역할</span>산학 프로젝트(경희대 · 롤링스톤) 수행 연구원</div><div><span>주요성과</span>4종 생산 클론 · 제작 SOP 납품 · 학교 · 회사 생산 검증 3회 완료</div></div>
     <div class="q"><div class="k">질문</div><p>비싸고 오래 걸리는 수입 원료를 우리가 직접 만들 수 있는가</p></div>
     <p>HIV · C형 간염 등 고위험 바이러스 진단키트에는 "몇 copy가 들어 있는지" 기준이 되는 정량 표준물질이 필요합니다. 그 원료(Armored RNA — 바이러스 껍질로 RNA를 감싸 안정화한 물질)를 자체 생산하는 기술을 개발한 산학 프로젝트입니다.</p>
     <div class="two">
@@ -433,8 +446,9 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
 <!-- Rollingstone full-time -->
 <section class="ch" id="b3">
   <div class="wrap">
-    <div class="kicker">롤링스톤(주) · 2014.08 – 2018.06 · 선임연구원 · 팀장</div>
+    <div class="kicker">롤링스톤(주) (구. 미코바이오메드) · 2014.08 – 2018.06 · 선임연구원 · 팀장</div>
     <h2>감염병 진단 제품 개발 · 식약처 인허가 4건</h2>
+    <div class="rs"><div><span>역할</span>진단 제품 개발 · 성능 검증 · 인허가 담당 팀장</div><div><span>주요성과</span>식약처 의료기기 인허가 4개 제품 · 해외 임상 2건 · 정부 R&amp;D 과제 6건(60억 원 이상) 실무 총괄</div></div>
     <div class="q"><div class="k">질문</div><p>개발 · 성능평가 · 인허가 체계가 없는 회사에서, 연구를 어떻게 인증받는 제품으로 만드나</p></div>
     <p>회사의 제품 개발 시작 단계에 합류해 개발 · 성능 검증 · 인허가 프로세스를 함께 구축했습니다.</p>
 
@@ -466,9 +480,9 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <div class="card">
         <div class="t">정부 R&amp;D 과제 6건 실무 총괄</div>
         <ul>
-          <li>말라리아 · 뎅기열 · 에볼라 · 큐열 등 병원 밖 현장에서 쓰는 신속 진단 제품 개발</li>
-          <li>한국보건산업진흥원 · 질병관리본부 · 한국연구재단 과제</li>
-          <li>신규 과제 제안서 작성</li>
+          <li>말라리아 · 뎅기열 · 에볼라 · 큐열 등 병원 밖 현장에서 쓰는 신속 진단 제품 개발 — <b>정부 지원금 60억 원 이상</b></li>
+          <li>한국보건산업진흥원 · 질병관리본부 · 한국연구재단 과제 · 식약처 · 질병관리본부 · 고려대 의대 등 참여 기관과 협업</li>
+          <li>일정 · 산출물 관리, 참여 기관 간 협의, 신규 과제 제안서 작성</li>
         </ul>
       </div>
     </div>
@@ -477,8 +491,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <div class="results">
       <div class="res"><div class="n">식약처 4개 제품</div><div class="l">의료기기 인허가 참여 — 성능 검증부터 임상까지</div></div>
       <div class="res"><div class="n">해외 임상 2건</div><div class="l">현지 대리점 협력 · 임상 기관 선정 · 교육 · 관리</div></div>
-      <div class="res"><div class="n">특허 출원 4건</div><div class="l">폐렴균 · 크리미안콩고 출혈열 · 리프트밸리열 바이러스 검출</div></div>
-      <div class="res"><div class="n">우수사원상</div><div class="l">3개 부서가 협업한 프로젝트로 연말 수상</div></div>
+      <div class="res"><div class="n">60억 원 이상</div><div class="l">정부 R&amp;D 과제 6건 실무 총괄 — 현장용 신속 진단 제품</div></div>
+      <div class="res"><div class="n">특허 출원 · 우수사원상</div><div class="l">폐렴균 검출 특허 출원 2건 · 3개 부서 협업 프로젝트로 연말 우수사원상</div></div>
     </div>
     <div class="carry"><div class="k">가져간 것</div><p>같은 시약이라도 분석 알고리즘과 장비 설정에 따라 결과가 달라진다는 것을 직접 확인. 시약을 아는 사람이 소프트웨어를 정의하면 연구원의 문제를 더 정확히 풀 수 있다.</p></div>
   </div>

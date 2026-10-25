@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유창훈 · Product Owner</title>
+<meta name="description" content="바이오 R&D 6년, 바이오 IT 서비스 기획 6년. 도메인 전문가의 문제를 제품으로 바꾸는 12년차 PO 유창훈의 포트폴리오.">
+<meta property="og:title" content="유창훈 · Product Owner">
+<meta property="og:description" content="바이오 R&D 6년, 바이오 IT 서비스 기획 6년. 도메인 전문가의 문제를 제품으로 바꾸는 12년차 PO.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root {
+  --bg: #ffffff; --bg2: #f5f7fa; --card: #ffffff; --ink: #141a26; --body: #4a5566; --mute: #8a94a3;
+  --line: #e3e8ef; --accent: #2457d6; --accent-soft: #eaf0fd; --hl: #e8590c;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f131a; --bg2: #161b24; --card: #161b24; --ink: #eef1f6; --body: #b4bdca; --mute: #7d8796;
+    --line: #262d39; --accent: #7aa2ff; --accent-soft: #1b2540; --hl: #ff9a5c;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; min-width: 0; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 16px; line-height: 1.7; word-break: keep-all; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 960px; margin: 0 auto; padding-inline: 24px; }
+
+nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 20px; height: 56px; overflow-x: auto; white-space: nowrap; }
+nav .name { font-weight: 800; color: var(--ink); margin-right: auto; }
+nav .l { color: var(--body); font-size: 14px; font-weight: 600; }
+
+header.hero { padding-block: 72px 48px; }
+.kicker { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .02em; }
+h1 { font-size: clamp(36px, 6vw, 52px); line-height: 1.15; margin: 10px 0 18px; letter-spacing: -.02em; }
+.hook { font-size: clamp(18px, 2.4vw, 22px); color: var(--body); max-width: 720px; margin: 0; }
+.hook b { color: var(--ink); }
+.points { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; }
+.points li { display: flex; gap: 10px; align-items: baseline; color: var(--ink); font-weight: 600; margin: 0; }
+.points li span { color: var(--accent); font-weight: 800; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 32px; }
+.kpi { background: var(--bg2); border-radius: 14px; padding: 18px 16px; overflow-wrap: anywhere; }
+.kpi .n { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.2; letter-spacing: -.01em; }
+.kpi .l { font-size: 13.5px; color: var(--body); margin-top: 6px; line-height: 1.5; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn { display: inline-block; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 14.5px;
+  border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:hover { text-decoration: none; filter: brightness(.96); }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+h2 { font-size: 28px; margin: 0 0 8px; letter-spacing: -.01em; line-height: 1.35; }
+.lead { color: var(--body); margin: 0 0 28px; }
+h3 { font-size: 20px; margin: 0 0 6px; }
+h4 { font-size: 14px; color: var(--accent); margin: 28px 0 10px; letter-spacing: .02em; }
+p { margin: 0 0 12px; color: var(--body); }
+ul { margin: 0 0 12px; padding-left: 20px; color: var(--body); }
+li { margin-bottom: 6px; }
+li b, p b, td b { color: var(--ink); }
+.part { padding-block: 40px 8px; border-top: 0; }
+.part .label { font-size: 13px; font-weight: 800; color: var(--mute); letter-spacing: .08em; }
+.part h2 { font-size: 32px; }
+
+/* overview table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+td, th { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--body); }
+th { color: var(--ink); font-weight: 700; white-space: nowrap; background: var(--bg2); }
+td.y { white-space: nowrap; color: var(--mute); font-weight: 700; }
+tr.now td { background: var(--accent-soft); }
+.bridge { margin-top: 20px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--bg2); border-radius: 0 10px 10px 0; color: var(--body); }
+.bridge b { color: var(--ink); }
+
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.card { border: 1px solid var(--line); border-radius: 14px; padding: 20px; background: var(--card); overflow-wrap: anywhere; }
+.card .t { font-weight: 800; margin-bottom: 6px; color: var(--ink); }
+.card p, .card li { font-size: 14.5px; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+/* chapter */
+.ch .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.tag { font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--bg2); color: var(--body); }
+.q { background: var(--accent-soft); border-radius: 14px; padding: 18px 20px; margin-bottom: 8px; }
+.q .k { font-size: 12.5px; font-weight: 800; color: var(--accent); letter-spacing: .04em; }
+.q p { margin: 4px 0 0; color: var(--ink); font-size: 17px; font-weight: 600; }
+.results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 8px 0 12px; }
+.res { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; overflow-wrap: anywhere; }
+.res .n { font-size: 22px; font-weight: 800; color: var(--hl); line-height: 1.25; }
+.res .l { font-size: 13.5px; color: var(--body); margin-top: 4px; line-height: 1.5; }
+.res .c { font-size: 12px; color: var(--mute); margin-top: 4px; }
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0 14px; }
+.flow span { background: var(--bg2); border-radius: 8px; padding: 6px 12px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.flow i { font-style: normal; color: var(--accent); font-weight: 800; }
+.carry { border-left: 3px solid var(--hl); padding: 12px 16px; background: var(--bg2); border-radius: 0 10px 10px 0; margin-top: 24px; }
+.carry .k { font-size: 12.5px; font-weight: 800; color: var(--hl); }
+.carry p { margin: 2px 0 0; color: var(--ink); }
+.note { font-size: 13px; color: var(--mute); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { font-size: 13.5px; padding: 5px 11px; border-radius: 8px; background: var(--bg2); color: var(--body); }
+ol.pub { padding-left: 20px; color: var(--body); font-size: 14.5px; }
+ol.pub li { margin-bottom: 8px; }
+details { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-top: 12px; }
+summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+details[open] summary { margin-bottom: 10px; }
+footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var(--mute); font-size: 14px; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi .n { font-size: 21px; }
+  nav .l { display: none; }
+  .grid3, .two, .results { grid-template-columns: minmax(0, 1fr); }
+  header.hero { padding-block: 48px 32px; }
+}
+@media print {
+  nav, .cta { display: none; }
+  body { font-size: 12.5px; }
+  section { padding-block: 22px; }
+  .ch { break-before: page; }
+  .card, .res, .kpi, tr { break-inside: avoid; }
+  details { border: 0; padding: 0; }
+  a { color: inherit; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">유창훈</a>
+    <a class="l" href="#overview">한눈에</a>
+    <a class="l" href="#seegene">씨젠</a>
+    <a class="l" href="#before">이전 경력</a>
+    <a class="l" href="#records">특허 · 연구</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">PRODUCT OWNER · 바이오 × IT 서비스 기획</div>
+    <h1>유창훈</h1>
+    <p class="hook"><b>바이오 R&amp;D 6년, 바이오 IT 서비스 기획 6년.</b><br>도메인 전문가의 문제를 제품으로 바꾸는 12년차 PO입니다.</p>
+    <ul class="points">
+      <li><span>01</span>연구원용 분석 SW 클라우드 전환 · 런칭 총괄</li>
+      <li><span>02</span>AI 업무 자동화로 팀 생산성 개선 — 팀 공용 메모리 · 스킬 체계</li>
+      <li><span>03</span>진단 제품 개발자 출신 — 식약처 인허가 4건 · 임상 2건</li>
+    </ul>
+
+    <div class="kpis">
+      <div class="kpi"><div class="n">200여 명</div><div class="l">연구원이 쓰는 분석 플랫폼을 클라우드 웹으로 전환 · 런칭 (2026.10)</div></div>
+      <div class="kpi"><div class="n">80%+ 단축</div><div class="l">대용량 분석 1건 처리 시간 (기존 시스템 대비)</div></div>
+      <div class="kpi"><div class="n">특허 6건</div><div class="l">웹 기반 설계 화면 특허 포함 · 공개 · 출원</div></div>
+      <div class="kpi"><div class="n">포상 2회</div><div class="l">R&amp;D 총괄 포상 — 감염병 긴급 대응(2024) · AI 업무 체계(2026)</div></div>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="#seegene">상세 경력 보기</a>
+      <a class="btn" href="유창훈_포트폴리오.pdf">PDF로 보기</a>
+      <a class="btn" href="https://github.com/yooch8">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <div class="wrap">
+    <h2>커리어 한눈에</h2>
+    <p class="lead">바이러스를 연구하고 진단 제품을 만들던 사람이, 그 제품의 결과를 좌우하는 소프트웨어를 기획하는 사람이 되기까지.</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>시기</th><th>역할</th><th>집중한 것</th><th>대표 성과</th></tr>
+        <tr class="now"><td class="y">2024 – 현재</td><td><b>씨젠</b> · 웹기획팀 팀장</td><td>연구원이 쓰기 편한 플랫폼 — 사용 편의성 · 대기 시간 · 운영 비용</td><td>클라우드 플랫폼 런칭 총괄 · 처리 시간 84% 단축 · AX 체계 구축</td></tr>
+        <tr><td class="y">2020 – 2023</td><td><b>씨젠</b> · 운영 → 기획 · PO</td><td>사용자와 개발자 사이 — 현장의 요청을 요구사항으로</td><td>플랫폼 운영 · 감염병 대응 · 웹 전환 PO · 2024 포상</td></tr>
+        <tr><td class="y">2020</td><td><b>프로지니어</b> · 신기술 PoC</td><td>신기술의 임상 적용 가능성 검증</td><td>데이터로 Go/No-Go 판단 → SW 기획으로 전환</td></tr>
+        <tr><td class="y">2014 – 2019</td><td><b>롤링스톤</b> · 진단 제품 개발 팀장</td><td>연구를 인증받는 제품으로 — 성능 검증 · 인허가</td><td>식약처 인허가 4건 · 장비 알고리즘 · 원료 내재화</td></tr>
+        <tr><td class="y">2005 – 2014</td><td><b>경희대</b> · 바이러스 연구</td><td>보이지 않는 바이러스의 검출과 데이터 기반 예측</td><td>정부 과제 실무 총괄 11건 · 예측 모델 · 논문 5편</td></tr>
+      </table>
+    </div>
+    <div class="bridge">진단 제품을 만들며 <b>같은 시약도 분석 알고리즘과 소프트웨어에 따라 결과가 달라진다</b>는 것을 직접 겪었습니다. 그래서 연구원의 언어를 아는 기획자로 자리를 옮겼고, 지금은 그 언어를 개발자가 구현할 수 있는 요구사항과 검증 기준으로 옮기는 일을 합니다.</div>
+
+    <h4>이런 일을 잘합니다</h4>
+    <div class="grid3">
+      <div class="card"><div class="t">도메인을 아는 기획</div><p>진단 제품 개발 · 인허가 · 임상을 직접 해 본 경험으로, 의료 · 바이오 전문가의 요구를 기획 언어로 옮깁니다.</p></div>
+      <div class="card"><div class="t">검증으로 결정하는 실행</div><p>런칭 여부를 의견이 아니라 검증 결과로 판단합니다. 합격 기준을 먼저 정하고 결과로 결정합니다.</p></div>
+      <div class="card"><div class="t">팀과 도구를 함께 키우는 리딩</div><p>노하우를 개인이 아니라 팀의 자산으로 만듭니다. AI 도구를 팀 인프라로 설계해 업무 수준을 끌어올립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEEGENE ================= -->
+<section class="part" id="seegene">
+  <div class="wrap">
+    <div class="label">PART 1 · 주식회사 씨젠 · 2020.06 – 현재</div>
+    <h2>서비스 기획자 · 팀장</h2>
+    <p class="lead">감염병 분자진단 기업 씨젠의 SW연구소에서, 진단 시약 연구원이 쓰는 유전자 설계 · 분석 소프트웨어를 운영하고 기획합니다.</p>
+  </div>
+</section>
+
+<!-- S1 -->
+<section class="ch" id="s1">
+  <div class="wrap">
+    <div class="kicker">씨젠 ① · 2022.01 – 2026.10</div>
+    <h2>사내 in-silico 설계 · 분석 플랫폼 클라우드 전환 · 런칭</h2>
+    <div class="meta"><span class="tag">PO (2022 – 2025)</span><span class="tag">팀장 (2024 – )</span><span class="tag">프로젝트 총괄 (2025.11 – )</span><span class="tag">48명 · 3개 팀 협업</span></div>
+    <div class="q"><div class="k">질문</div><p>연구원이 더 편하게 쓰고, 더 빨리 결과를 받고, 회사는 합리적인 비용으로 운영하는 플랫폼을 어떻게 만들 것인가</p></div>
+
+    <h4>어떤 서비스인가</h4>
+    <p>PCR 진단키트의 성능은 <b>특정 병원체에만 달라붙는 짧은 DNA 조각(올리고)</b>을 얼마나 잘 설계하느냐에 달려 있습니다. 열쇠(올리고)가 모든 변이 자물쇠(병원체)에는 맞고, 다른 자물쇠에는 맞지 않아야 합니다. 이 설계와 검증을 실험 전에 컴퓨터로 시뮬레이션하는 것을 in-silico 라고 부릅니다.</p>
+    <p>연구원이 웹에서 작업을 요청하면 서버가 수천만 건의 유전체 데이터를 대상으로 수 분에서 수십 시간짜리 분석을 돌려 결과를 돌려줍니다. 연구원 200여 명이 연간 1만 건 이상 사용합니다.</p>
+    <div class="grid3">
+      <div class="card"><div class="t">설계</div><p>병원체 정보를 넣으면 올리고 후보를 자동 설계 · 여러 병원체를 한 번에 검사하는 멀티플렉스 조합 비교 · 웹에서 결과를 고치고 바로 재실행</p></div>
+      <div class="card"><div class="t">분석 5종</div><p>설계한 올리고가 변이주를 빠짐없이 잡는지(커버리지), 서로 간섭하지 않는지(다이머) 등을 검증 · 결과를 웹에서 바로 확인</p></div>
+      <div class="card"><div class="t">편의 도구</div><p>녹는 온도 계산 · 위치 보기 · 서열 변환 등 요청 없이 웹에서 즉시 쓰는 도구 · 신기술 계산 기능 선적용</p></div>
+    </div>
+
+    <h4>문제 — 연구원이 겪던 불편</h4>
+    <div class="grid3">
+      <div class="card"><div class="t">쓰기 불편</div><p>PC 설치형이라 설치 오류가 잦고, 결과를 보려면 운영자에게 대행을 요청해야 했습니다.</p></div>
+      <div class="card"><div class="t">오래 기다림</div><p>한 번에 돌릴 수 있는 작업 수에 한계가 있고, 무거운 분석은 하룻밤을 넘겨 18시간이 걸렸습니다.</p></div>
+      <div class="card"><div class="t">고정비 구조</div><p>쓰지 않을 때도 장비 · 데이터센터 비용이 그대로 나가는 구조였습니다.</p></div>
+    </div>
+
+    <h4>① 사용 편의성 — 요구사항에서 기획까지</h4>
+    <ul>
+      <li>4년치 사용자 문의 <b>1,411건</b>을 의도별로 분류해 새 서비스의 기능과 하나씩 매칭</li>
+      <li>사용자 설문 · 기획 피드백을 더해, 계획한 요구사항 102건에 <b>55건을 추가</b>해 1차 요구사항 <b>143건</b> 확정 · 기존 시스템 개선 요청 43건 중 <b>38건 반영</b></li>
+      <li>화면 기획서 · 기능 명세 · IA 작성, 신규 웹 화면 157개 · 입력 제한과 공통 동작 등 공통 정책 230개를 전 화면에 일관 적용</li>
+      <li>운영자 대행 없이 <b>연구원이 웹에서 직접</b> 요청 · 진행 상황 확인 · 결과 수정 · 재실행까지 하도록 흐름 설계</li>
+      <li>기획한 웹 기반 멀티플렉스 설계 화면이 <b>특허로 공개</b> (공개특허 10-2025-0053485)</li>
+      <li>UI/UX · 개발 외주 2개사 동시 관리 (디자인 리뷰 추적 · 개발 이슈 데일리 스크럼)</li>
+    </ul>
+
+    <h4>② 대기 시간 — 알고리즘과 인프라</h4>
+    <ul>
+      <li><b>핵심 알고리즘 개선</b> · 개발팀과 함께 분석 단계별 병목을 찾아 개선 — 대형 분석의 통계 단계 약 2시간 26분 → 4분, 서열 검색 조건 조정으로 실행 시간 중앙값 75% 단축</li>
+      <li><b>인프라 테스트</b> · 운영 서버에서 동시 실행 한계 · 모듈 간 자원 경합 · 작업 크기별 소요 시간과 단가를 실측해 서버 구성 확정 — 대형 분석 1건이 서버 1대를 차지하는 구조를 찾아 동시 실행 상한을 정함</li>
+      <li><b>무거운 단계 분리</b> · 서열 추출 서비스를 필요할 때만 서버를 띄우는 방식으로 바꿔 처리 시간 6시간 41분 → 약 13분</li>
+    </ul>
+
+    <h4>③ 비용 — 쓴 만큼만 내는 구조로</h4>
+    <ul>
+      <li>쓰지 않을 때도 켜 두던 고성능 디스크를 없애고 원본 저장소를 바로 읽도록 바꿔 <b>고정 디스크 비용 사실상 제거</b> (피크 메모리 90% 감소)</li>
+      <li>서열 검색 서버를 과금 없는 전용 경로 · 저가 노드로 옮겨 <b>노드 시간 단가 73% · 월 비용 62% 절감</b></li>
+      <li>같은 작업량 · 같은 범위로 맞춰 비교했을 때 <b>운영비가 기존 설치형보다 낮아짐</b> — 같은 서버를 2026년 시세로 다시 사는 경우와 비교하면 차이는 더 커짐</li>
+    </ul>
+
+    <h4>④ 검증 — 런칭 여부는 결과로</h4>
+    <p>기능 → 통합 2단계 QA 구조를 정의하고, 런칭 전에는 단계마다 합격 기준을 먼저 정한 5단계 검증을 설계했습니다. 참여 인력이 30% 줄었을 때는 범위를 줄이는 대신 AI 도구 도입 · QA 외주 분리 · 모듈 순서 재배치로 계획을 바꿔 일정을 지켰습니다.</p>
+    <div class="flow"><span>기능 테스트</span><i>→</i><span>사용자 시나리오</span><i>→</i><span>실서버 부하</span><i>→</i><span>베타 (8명 · 2주 · 의견 190건)</span><i>→</i><span>결과 비교</span></div>
+
+    <h4>결과 — 사용자와 회사가 얻은 것</h4>
+    <div class="results">
+      <div class="res"><div class="n">18시간 → 2시간 51분</div><div class="l"><b>결과까지 기다리는 시간</b> 84% 단축 — 다음 날 보던 결과를 당일 확인</div><div class="c">※ 2,600만 건 규모 유전체 데이터 대상 동일 입력 1건, 기존 시스템 대비</div></div>
+      <div class="res"><div class="n">1.5배 이상</div><div class="l"><b>동시에 처리하는 작업 수</b> — 대기열이 줄어듦 (분석 모듈은 최대 15배)</div><div class="c">※ 같은 서버 구성 기준, 기존 시스템 대비</div></div>
+      <div class="res"><div class="n">운영비 ↓ · 종량제</div><div class="l"><b>같은 작업량 기준 운영비가 기존보다 낮아짐</b> — 고정비를 쓴 만큼 내는 구조로 전환</div><div class="c">※ 서열 검색 월 비용 −62% · 노드 시간 단가 −73%</div></div>
+      <div class="res"><div class="n">98.4% · 98.6%</div><div class="l"><b>신뢰성</b> — 부하 테스트 984건 중 968건 정상 완료(목표 95%) · 기존 시스템과 결과 98.6% 일치 확인 후 전환</div></div>
+    </div>
+    <ul>
+      <li><b>셀프서비스</b> · 운영자 대행 없이 연구원이 웹에서 직접 요청 · 확인 · 재실행</li>
+      <li><b>사용자 목소리 반영</b> · 1차 요구사항 143건 중 55건이 사용자 의견에서 나옴 · 기존 개선 요청 43건 중 38건 반영</li>
+      <li><b>전환</b> · 계획한 날짜(2026.10)에 런칭 · 설명회 140명(주 사용 부서의 76%) · 온보딩 교육 18회 · 런칭 다음 날부터 새 서비스와 기존 시스템 사용량을 매일 대조</li>
+    </ul>
+
+    <div class="carry"><div class="k">가져간 것</div><p>좋은 플랫폼은 기능 수가 아니라, 사용자가 결과를 받기까지 걸리는 시간과 그 비용으로 증명된다.</p></div>
+  </div>
+</section>
+
+<!-- S2 -->
+<section class="ch" id="s2">
+  <div class="wrap">
+    <div class="kicker">씨젠 ② · 2024.01 – 현재</div>
+    <h2>웹기획팀 리딩 · 육성 — AX 도입과 사내 웹기획 업무 통합</h2>
+    <div class="meta"><span class="tag">팀장 · 6명</span><span class="tag">Scrum · Azure DevOps</span><span class="tag">Claude Code · RAG</span><span class="tag">2026 R&amp;D 총괄 포상</span></div>
+    <div class="q"><div class="k">질문</div><p>바이오 전공자 중심의 팀이, 사람마다 다른 결과가 아니라 같은 수준의 기획 산출물을 낼 수 있을까</p></div>
+
+    <h4>팀 관리 — 스크럼과 Azure DevOps</h4>
+    <ul>
+      <li>화면 기획 · 디자인 · 검증 · 매뉴얼 · 포털로 역할을 나누고, 업무 기준을 팀 공용 문서로 공유</li>
+      <li>Azure DevOps Boards로 요구사항 <b>Epic → Feature</b> 체계와 랩 백로그 설계, 스프린트 단위로 운영</li>
+      <li>Azure DevOps Test Plans로 QA 계획 · 테스트 케이스 · 결함을 한곳에서 추적</li>
+    </ul>
+
+    <h4>육성 — 배우는 조직</h4>
+    <ul>
+      <li>바이오 전공 팀원 대상 IT 교육 설계 (2023 – ) — 매주 2시간 오프라인 멘토링 · Python · 서비스 기획 과정 공동 수강과 리뷰</li>
+      <li>팀원마다 다른 교육 계획 — 디자이너에게는 도메인 교육, 기획자에게는 설계 프로그램 실습</li>
+      <li>신입 OJT 5명 담당 (2020 – 2024) · 그중 1명은 현재 팀 핵심 QA 담당</li>
+    </ul>
+
+    <h4>AX 도입 — AI를 팀의 인프라로</h4>
+    <p>모두 AI 도구를 쓰는데, DB 접속법 · 비용 산출법 · 사내망 이슈 같은 업무 노하우가 <b>각자 PC에만</b> 있어 같은 질문에도 사람마다 다른 답이 나왔습니다. 잘하는 사람의 노하우를 <b>팀 전체의 기본값</b>으로 만들기로 하고, 두 개의 축으로 체계를 만들었습니다.</p>
+    <div class="two">
+      <div class="card">
+        <div class="t">축 1 · GitHub 기반 팀 메모리 · 스킬 공유</div>
+        <ul>
+          <li><b>메모리</b> — 업무 노하우를 컨텍스트 팩으로 문서화, 모든 AI 세션에 자동 주입</li>
+          <li><b>스킬</b> — 반복 업무를 팀 공용 Agent Skill로 표준화 (분석 작업 생성 · 실행 · 결과 확인, 기획서 → 테스트 케이스 변환 등)</li>
+          <li><b>정본 관리</b> — GitHub 레포가 정본, 기여는 PR 리뷰로</li>
+          <li><b>최신 유지</b> — 스크립트 한 번으로 셋업, 세션 시작 시 버전 불일치를 감지하는 훅</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">축 2 · 사내 서버 기반 기획 플랫폼</div>
+        <ul>
+          <li><b>RAG 통합 검색</b> — Notion · Figma · DevOps · DB · 요구사항 문서를 임베딩해 Vector DB에 적재, 출처를 붙여 답변</li>
+          <li><b>웹화면 기획 허브</b> — 기획 화면 800여 개를 설명 · 제약 · 정책 · 개발 항목과 연결한 뷰어, 정책 변경 시 영향 화면 자동 분석</li>
+          <li><b>에이전트</b> — 기획 화면 · 정책을 MCP 도구로 참조하는 버그 검토 · 기획 초안 챗봇, 헬프데스크 이슈 자동 등록 · 알림</li>
+          <li><b>구성</b> — React · Flask · Qdrant · Docker Compose · 일일 동기화 배치</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>결과</h4>
+    <div class="results">
+      <div class="res"><div class="n">30분</div><div class="l">신규 팀원 업무 환경 셋업 — 처음부터 다시 배우던 것을 스크립트 한 번으로</div></div>
+      <div class="res"><div class="n">875건 · 5일</div><div class="l">런칭 전 대규모 테스트 — 사람이 화면을 조작하던 작업을 자연어 지시 자동화로</div></div>
+      <div class="res"><div class="n">PR 103건</div><div class="l">한 분기 동안 팀원 5명과 옆 팀이 같은 저장소에 기여</div></div>
+      <div class="res"><div class="n">4종</div><div class="l">팀원이 자발적으로 만들어 팀 전체가 쓰는 자동화 도구</div></div>
+    </div>
+    <ul>
+      <li>팀원 간 AI 작업 결과가 상향 평준화 → <b>2026 3분기 R&amp;D 총괄 포상</b></li>
+      <li>직접 만든 버그 검토 챗봇의 판정 정확도가 기준에 못 미친다는 것을 측정해 배포를 보류하고 방향 전환</li>
+    </ul>
+
+    <h4>범위 확장</h4>
+    <p>인실리코 플랫폼 기획에서 출발해, 포털 등 사내 웹서비스 기획 업무를 팀으로 통합해 가는 중입니다.</p>
+
+    <div class="carry"><div class="k">가져간 것</div><p>AI는 개인의 생산성 도구가 아니라 팀의 인프라로 설계할 때 효과가 커진다. 그리고 AI 결과도 지표로 판단한다.</p></div>
+  </div>
+</section>
+
+<!-- S3 -->
+<section class="ch" id="s3">
+  <div class="wrap">
+    <div class="kicker">씨젠 ③ · 2020.06 – 현재</div>
+    <h2>연구원 지원을 위한 in-silico 운영 · 대응 (COVID-19 · 엠폭스 등)</h2>
+    <div class="meta"><span class="tag">운영 · 기획 · 데이터 분석</span><span class="tag">2024 R&amp;D 총괄 포상</span></div>
+    <div class="q"><div class="k">질문</div><p>연구원(사용자)과 개발자 사이에서, 서로의 언어를 어떻게 옮길 것인가</p></div>
+    <p>기존 설치형 플랫폼을 운영하며 사용자(진단 시약 연구원)와 개발자(SW연구소) 사이의 소통 창구 역할을 맡았습니다. 도구를 쓰는 사람의 자리에서 일한 이 경험이 이후 도구를 정의하는 기획의 바탕이 됐습니다.</p>
+
+    <div class="two">
+      <div class="card">
+        <div class="t">운영 — 유지보수 · 개선 · 헬프데스크</div>
+        <ul>
+          <li>사용자 요청을 요구사항으로 정리해 개발팀에 전달하고 배포 결과를 검증</li>
+          <li>헬프데스크 운영 — 문의 대응 절차(위험도 지정 · 1일 내 답변 · 처리 기간 사전 안내) 준수</li>
+          <li>소속 랩 1년 운영 지표(참여) — 운영 이슈 343건 중 338건 처리 · SW 개선 요청 66건 중 63건 반영</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">감염병 대응 — 코로나19</div>
+        <ul>
+          <li>변이 11종 분석 · 월간 정기 리포트 작성</li>
+          <li>반복 분석을 자동화하는 <b>모니터링 서비스 요구사항을 직접 정의</b> — 매주 최신 데이터로 자동 분석 · 정기/수시 2개 모드 · 리포트 3종</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">감염병 대응 — 엠폭스 23일 긴급 지원 (2024)</div>
+        <ul>
+          <li>개발팀과 실시간 채널 운영 · 최신 유전체 데이터를 직접 수집해 분석 기준 데이터를 3일 간격으로 갱신 배포</li>
+          <li>제품 후보 15개 특이성 분석 → 제품화 가능한 <b>10개 선별</b></li>
+          <li>분석 기준 데이터에 일부 바이러스 데이터가 빠져 있는 문제를 먼저 발견해 영향 범위를 보고 → <b>2024 R&amp;D 총괄 포상</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">인허가 대응 · 개발 지원</div>
+        <ul>
+          <li>해외 인허가(FDA) 대응 보고서 작성</li>
+          <li>출시 제품 사후관리 문서 긴급 대응 — 35개 제품</li>
+          <li>입사 반년 만에 서열 정렬 분석 모듈 신규 개발 주도</li>
+          <li>연구원 요청 유전자 설계 · 분석 수행 · 변이 검출 방법 특허 공개 (10-2023-0084685)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="carry"><div class="k">가져간 것</div><p>연구원이 "이게 안 된다"고 할 때 요구사항으로, 개발자가 "이렇게 동작한다"고 할 때 검증 기준으로 옮기는 일. 두 언어 사이의 번역이 기획의 출발점이다.</p></div>
+  </div>
+</section>
+
+<!-- ================= BEFORE ================= -->
+<section class="part" id="before">
+  <div class="wrap">
+    <div class="label">PART 2 · 바이오 R&amp;D · 2005 – 2020</div>
+    <h2>기획의 기반이 된 바이오 R&amp;D</h2>
+    <p class="lead">의료 · 바이오 서비스를 기획할 때 전문가와 같은 언어로 이야기할 수 있는 이유입니다.</p>
+  </div>
+</section>
+
+<!-- Progenia -->
+<section class="ch" id="b1">
+  <div class="wrap">
+    <div class="kicker">프로지니어(주) · 2020.01 – 2020.06 · 과장</div>
+    <h2>핵산 구조 기반 신규 진단기술 PoC — 암 바이오마커 검출</h2>
+    <div class="q"><div class="k">질문</div><p>PCR 없이 DNA 나노구조와 형광 신호만으로 암을 찾아낼 수 있는가</p></div>
+    <p>혈액이나 조직 속 암 바이오마커(miRNA, 간암 · 대장암)를 PCR 증폭 없이 DNA 나노구조와 형광 신호만으로 검출하는 신규 진단기술의 개념 검증(PoC)을 맡았습니다.</p>
+    <ul>
+      <li><b>검출 성능 시험</b> — 얼마나 적은 양까지 잡는지(민감도), 다른 유전자에 반응하지 않는지(특이도) 시험 · 반응 온도 · 버퍼 조건 최적화</li>
+      <li><b>실제 환자 검체 적용</b> — 혈장 · 조직 검체를 상용 PCR 키트 결과와 비교</li>
+      <li><b>판단</b> — 최적화한 조건에서도 민감도가 임상 적용 기준에 못 미친다고 결론. 신호를 증폭하는 대안 컨셉 2종(bDNA · Hybrid Capture)을 설계하고 재료를 조사</li>
+    </ul>
+    <div class="carry"><div class="k">가져간 것</div><p>가설 → 실험 → 데이터로 Go/No-Go를 판단하는 방식. 그리고 진단 결과를 좌우하는 것이 시약만이 아니라는 확신 → SW 기획으로 커리어 전환.</p></div>
+  </div>
+</section>
+
+<!-- Rollingstone freelance -->
+<section class="ch" id="b2">
+  <div class="wrap">
+    <div class="kicker">롤링스톤(주) · 2018.07 – 2019.08 · 프리랜서</div>
+    <h2>수입 의존 진단 핵심 원료의 자체 생산 기술 개발</h2>
+    <div class="q"><div class="k">질문</div><p>비싸고 오래 걸리는 수입 원료를 우리가 직접 만들 수 있는가</p></div>
+    <p>HIV · C형 간염 등 고위험 바이러스 진단키트에는 "몇 copy가 들어 있는지" 기준이 되는 정량 표준물질이 필요합니다. 그 원료(Armored RNA — 바이러스 껍질로 RNA를 감싸 안정화한 물질)를 자체 생산하는 기술을 개발한 산학 프로젝트입니다.</p>
+    <div class="two">
+      <div class="card"><div class="t">배경</div><p>글로벌 진단기업들이 쓰는 수입 원료는 <b>1억 copies/ml 기준 약 $15,000</b>에 <b>발주 6 ~ 8주</b>. 원천 특허가 만료된 점을 활용해 내재화하면 키트 원가를 낮출 수 있다고 판단.</p></div>
+      <div class="card"><div class="t">수행</div><ul><li>생산용 유전자 클론 설계 · 제작</li><li>대장균 발현 · 세포 파쇄 · 정제 조건 확립</li><li>가속 노화 기반 보관 안정성 시험</li><li>real-time PCR 기반 정량 측정법 수립</li></ul></div>
+    </div>
+    <h4>결과</h4>
+    <ul>
+      <li>HIV · C형 간염 등 <b>4종 생산 클론</b>과 <b>제작 SOP</b>(최종보고서) 납품</li>
+      <li>학교 1회 · 회사 2회 <b>생산 검증 3회</b> 완료</li>
+      <li>병행 업무 — HIV · B형 · C형 간염 진단 시약 설계, 진단 제품 30여 종 검사 장비 최적화</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Rollingstone full-time -->
+<section class="ch" id="b3">
+  <div class="wrap">
+    <div class="kicker">롤링스톤(주) · 2014.08 – 2018.06 · 선임연구원 · 팀장</div>
+    <h2>감염병 진단 제품 개발 · 식약처 인허가 4건</h2>
+    <div class="q"><div class="k">질문</div><p>개발 · 성능평가 · 인허가 체계가 없는 회사에서, 연구를 어떻게 인증받는 제품으로 만드나</p></div>
+    <p>회사의 제품 개발 시작 단계에 합류해 개발 · 성능 검증 · 인허가 프로세스를 함께 구축했습니다.</p>
+
+    <div class="two">
+      <div class="card">
+        <div class="t">진단 제품 개발</div>
+        <ul>
+          <li>바이러스 · 세균 감염병 진단 시약 <b>20종 이상</b> 설계</li>
+          <li>반응 시약(master mix) 효율 개선 · 신규 효소 평가 · 도입</li>
+          <li>표준물질 준비법 확립 — 바이러스 · 균주 배양, cloning, in vitro transcription</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">성능 검증 · 인허가</div>
+        <ul>
+          <li>국제 임상검사 표준(CLSI)에 따른 성능 검증 방법 수립 — "얼마나 적은 양까지, 얼마나 정확하게" 통계로 입증</li>
+          <li>품질경영(QMS) 구축 문서 작성 · 식약처 허가용 임상시험 기관 선정 · 지원 · 결과 분석</li>
+          <li>해외 임상 2건 — 현지 대리점과 협력해 기관 선정 · 교육 · 관리</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">진단 장비 알고리즘 — 소프트웨어와의 첫 만남</div>
+        <ul>
+          <li>칩 방식 진단 장비가 더 적은 양의 바이러스도 잡도록 신호 분석 알고리즘 개발 · 소프트웨어 수정</li>
+          <li>4채널 진단 장비 성능 평가 — 채널별 민감도 · 채널 간 간섭 · 형광 보정값</li>
+          <li>핵산 추출 장비 · 키트 평가 물질 개발</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="t">정부 R&amp;D 과제 6건 실무 총괄</div>
+        <ul>
+          <li>말라리아 · 뎅기열 · 에볼라 · 큐열 등 병원 밖 현장에서 쓰는 신속 진단 제품 개발</li>
+          <li>한국보건산업진흥원 · 질병관리본부 · 한국연구재단 과제</li>
+          <li>신규 과제 제안서 작성</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>결과</h4>
+    <div class="results">
+      <div class="res"><div class="n">식약처 4개 제품</div><div class="l">의료기기 인허가 참여 — 성능 검증부터 임상까지</div></div>
+      <div class="res"><div class="n">해외 임상 2건</div><div class="l">현지 대리점 협력 · 임상 기관 선정 · 교육 · 관리</div></div>
+      <div class="res"><div class="n">특허 출원 4건</div><div class="l">폐렴균 · 크리미안콩고 출혈열 · 리프트밸리열 바이러스 검출</div></div>
+      <div class="res"><div class="n">우수사원상</div><div class="l">3개 부서가 협업한 프로젝트로 연말 수상</div></div>
+    </div>
+    <div class="carry"><div class="k">가져간 것</div><p>같은 시약이라도 분석 알고리즘과 장비 설정에 따라 결과가 달라진다는 것을 직접 확인. 시약을 아는 사람이 소프트웨어를 정의하면 연구원의 문제를 더 정확히 풀 수 있다.</p></div>
+  </div>
+</section>
+
+<!-- Graduate -->
+<section class="ch" id="b4">
+  <div class="wrap">
+    <div class="kicker">경희대학교 분자바이러스학 실험실 · 2005 – 2014</div>
+    <h2>바이러스를 데이터로 본 연구자</h2>
+    <div class="q"><div class="k">질문</div><p>물속에 있는지조차 보이지 않는 바이러스를 어떻게 찾고, 오염을 어떻게 예측하나</p></div>
+    <ul>
+      <li>학부 1학년부터 실험실 · 대학원 1년차부터 실험실 전 과제의 실무 총괄 — <b>5년간 11건</b> (국립환경과학원 · 식약처 등)</li>
+      <li>지하수 · 하천 · 하수 방류수 · 해수에서 노로바이러스 등 수인성 바이러스 검출법 확립 · 기관 대상 교육</li>
+      <li>수환경 바이러스 포집용 저비용 장치 개발 · 판매</li>
+      <li>모의 오염원과 심도별 관측 설비를 설치해 오염원 거리 · 깊이에 따른 지하수 오염 양상 규명</li>
+      <li>6년간 모은 <b>1,300여 건 데이터</b>로 노로바이러스 오염 예측 모델 제시 — 로지스틱 회귀 · 의사결정나무 (SPSS · SAS)</li>
+    </ul>
+    <div class="carry"><div class="k">가져간 것</div><p>현상을 수치로 모으고 모델로 설명하는 습관, 과제를 처음부터 끝까지 책임지는 방식.</p></div>
+  </div>
+</section>
+
+<!-- ================= RECORDS ================= -->
+<section id="records">
+  <div class="wrap">
+    <h2>학력 · 수상 · 특허 · 연구</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>학력</th><td>경희대학교 대학원 생명공학 박사 수료 (2009.03 – 2014.07)<br>경희대학교 생물학과 학사 (2005.03 – 2009.02)</td></tr>
+        <tr><th>수상</th><td><b>씨젠 R&amp;D 총괄 포상 (2026 3분기 · 개인)</b> — AI 업무 자동화 도구를 팀 공용 자산으로 만든 공로<br><b>씨젠 R&amp;D 총괄 포상 (2024 3분기 · 개인)</b> — 엠폭스 유행 긴급 대응 · 분석 기준 데이터 누락 문제 선제 발견<br>롤링스톤 우수사원상 — 3개 부서 협업 프로젝트</td></tr>
+      </table>
+    </div>
+
+    <h4>특허</h4>
+    <ol class="pub">
+      <li>멀티플렉스 올리고뉴클레오타이드 세트를 제공하는 방법 및 장치 — 웹 기반 올리고 디자인 화면 · 공개특허 10-2025-0053485 (2025.04)</li>
+      <li>타겟 핵산 서열 상의 타겟 뉴클레오타이드 변이를 검출하는 방법 · 공개특허 10-2023-0084685 (2023.06)</li>
+      <li>리프트밸리열바이러스 검출용 프라이머 세트 및 이의 용도 · 공개특허 10-2020-0056352 (2020.01)</li>
+      <li>크리미안콩고 출혈열 바이러스의 아형을 동시에 검출하기 위한 프라이머 및 프로브, 및 이를 이용한 검출방법 · 공개특허 10-2020-0056348 (2019.12)</li>
+      <li>정형성 폐렴균 검출용 프라이머 및 프로브 세트, 이를 이용한 PCR 장치 및 검출 방법 · 출원 10-2016-0109078</li>
+      <li>비정형 폐렴균 검출용 프라이머 및 프로브 세트, 이를 이용한 PCR 장치 및 검출 방법 · 출원 10-2016-0109079</li>
+    </ol>
+
+    <details>
+      <summary>논문 5편 · 국제 학회 포스터 4편</summary>
+      <ol class="pub">
+        <li>JH Jung, CH Yoo et al. Occurrence of norovirus and other enteric viruses in untreated groundwater of Korea. <i>J Water Health</i> (2011)</li>
+        <li>ES Koo, CH Yoo et al. Reliability of non-culturable virus monitoring by PCR-based detection methods in environmental waters containing various concentrations of target RNA. <i>J Microbiol</i> (2012)</li>
+        <li>MS Kim, …, CH Yoo et al. Distribution of human norovirus in the coastal waters of South Korea. <i>PLoS One</i> (2016)</li>
+        <li>JH Kim, JY Kim, CH Yoo et al. Macrolide resistance and its impacts on M. pneumoniae pneumonia in children. <i>Allergy Asthma Immunol Res</i> (2017)</li>
+        <li>TJ Cho, HW Kim, CH Yoo et al. Novel diagnosis system overcoming limitations of microfluidic labchip devices for on-site application. <i>J Biol Eng</i> (2019)</li>
+      </ol>
+      <p class="note">포스터 — ASV 2008 · Goldschmidt 2011 · ASV 2012 (제1저자: Human norovirus and enterovirus occurrence in groundwater, stream, and treated sewage effluent) · Goldschmidt 2012</p>
+    </details>
+
+    <details>
+      <summary>정부 R&amp;D 과제 20건 (실무 총괄 17 · 보조 3)</summary>
+      <div class="table-wrap">
+        <table>
+          <tr><th>기간</th><th>역할</th><th>과제</th><th>지원기관</th></tr>
+          <tr><td class="y">2016 – 2017</td><td>실무 총괄</td><td>에볼라바이러스 등 고위험병원체 현장 검출용 · 실험실검사용 실시간 유전자 키트 제작</td><td>질병관리본부</td></tr>
+          <tr><td class="y">2016 – 2017</td><td>실무 총괄</td><td>큐열균 등 고위험병원체 현장 검출 실시간 유전자 키트 제작</td><td>질병관리본부</td></tr>
+          <tr><td class="y">2016</td><td>실무 총괄</td><td>신종 · 해외 유입 감염병 조기 제어를 위한 현장검사(POCT) 분자진단시스템 개발</td><td>한국보건산업진흥원</td></tr>
+          <tr><td class="y">2016 – 2017</td><td>실무 총괄</td><td>감염 질환 초고속 정밀 다중 분자진단 기술 개발 및 상용화</td><td>한국보건산업진흥원</td></tr>
+          <tr><td class="y">2015 – 2016</td><td>실무 총괄</td><td>랩칩 기반 초고속 실시간 PCR을 이용한 국내 유입 가능 바이러스(뎅기열 등) 현장 · 신속 진단기술 개발</td><td>한국연구재단</td></tr>
+          <tr><td class="y">2015 – 2016</td><td>실무 총괄</td><td>말라리아 현장검사용 랩칩 기반 다채널 동시 다중검출 자동화 real-time PCR 시스템 개발</td><td>한국보건산업진흥원</td></tr>
+          <tr><td class="y">2014</td><td>실무 총괄</td><td>노로바이러스 식중독 근원적 예방 연구</td><td>식품의약품안전처</td></tr>
+          <tr><td class="y">2009 – 2014</td><td>실무 총괄</td><td>지하수 노로바이러스 오염실태 · 가축 매몰지 주변 병원성 미생물 · 집단급식소 오염도 조사 등 10건</td><td>국립환경과학원 · 식약청</td></tr>
+          <tr><td class="y">2006 – 2008</td><td>보조</td><td>코로나바이러스 서열 DB 구축 · 지하수 노로바이러스 실태 조사 등 3건</td><td>질병관리본부 · 환경관리공단 · 국립환경과학원</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <h4>기술 · 도구</h4>
+    <div class="chips">
+      <span>Product Management</span><span>서비스 기획</span><span>요구사항 분석</span><span>화면 설계 · IA</span><span>Scrum</span><span>QA 설계</span><span>데이터 분석</span>
+      <span>Figma</span><span>Azure DevOps</span><span>Notion</span><span>Slack</span><span>GitHub</span><span>GitHub Copilot</span>
+      <span>Python</span><span>SQL</span><span>Claude Code</span><span>RAG · Vector DB</span><span>MCP</span><span>Docker</span>
+      <span>분자진단</span><span>바이러스학</span><span>진단검사의학</span><span>의료기기 인허가</span><span>통계 분석 (SPSS · SAS)</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    유창훈 · Product Owner · 바이오 × IT 서비스 기획<br>
+    연락은 원티드 프로필을 통해 부탁드립니다. · 2026.10 기준
+  </div>
+</footer>
+
+</body>
+</html>

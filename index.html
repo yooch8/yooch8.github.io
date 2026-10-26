@@ -11,13 +11,13 @@
 <style>
 :root {
   --bg: #ffffff; --bg2: #f5f7fa; --card: #ffffff; --ink: #141a26; --body: #4a5566; --mute: #8a94a3;
-  --line: #e3e8ef; --accent: #2457d6; --accent-soft: #eaf0fd; --hl: #e8590c;
+  --line: #e3e8ef; --accent: #2457d6; --accent-soft: #eaf0fd; --hl: #e8590c; --ok: #1f8a4c;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f131a; --bg2: #161b24; --card: #161b24; --ink: #eef1f6; --body: #b4bdca; --mute: #7d8796;
-    --line: #262d39; --accent: #7aa2ff; --accent-soft: #1b2540; --hl: #ff9a5c;
+    --line: #262d39; --accent: #7aa2ff; --accent-soft: #1b2540; --hl: #ff9a5c; --ok: #5fd38d;
     color-scheme: dark;
   }
 }
@@ -118,10 +118,101 @@ summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 details[open] summary { margin-bottom: 10px; }
 footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var(--mute); font-size: 14px; }
 
-@media (max-width: 760px) {
+code { font-family: ui-monospace, Consolas, "D2Coding", monospace; font-size: .86em; background: var(--bg2); border-radius: 5px; padding: 1px 5px; color: var(--ink); overflow-wrap: anywhere; }
+
+/* planning practice */
+.pipe { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 18px 0 8px; }
+.pipe .st { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: var(--card); overflow-wrap: anywhere; }
+.pipe .st .h { font-weight: 800; color: var(--accent); font-size: 14px; }
+.pipe .st p { font-size: 13.5px; margin: 6px 0 8px; line-height: 1.55; }
+.pipe .st .o { font-size: 12px; color: var(--mute); border-top: 1px dashed var(--line); padding-top: 6px; line-height: 1.5; }
+.spec { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.wf { border: 1px solid var(--line); border-radius: 12px; background: var(--bg2); padding: 14px; font-size: 12.5px; line-height: 1.5; }
+.wf-top, .wf-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.wf-top { padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.wf-top b { font-size: 15px; color: var(--ink); }
+.wf-row { margin-bottom: 8px; }
+.wf-row b { color: var(--ink); }
+.wf .sp { flex: 1; }
+.wf .ico, .wf .chip, .wf .sel { border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; background: var(--card); color: var(--body); }
+.wf .sel { color: var(--mute); min-width: 110px; }
+.wf .btn-off { border-radius: 6px; padding: 2px 10px; background: var(--line); color: var(--mute); font-weight: 700; }
+.wf-tbl { border: 1px solid var(--line); border-radius: 8px; background: var(--card); margin-bottom: 8px; overflow: hidden; }
+.wf-tbl .cap { font-weight: 800; color: var(--ink); padding: 5px 8px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; }
+.wf-tbl .tr { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 6px; padding: 4px 8px; border-bottom: 1px solid var(--line); color: var(--body); align-items: center; }
+.wf-tbl .tr:last-child { border-bottom: 0; }
+.wf-tbl .th { background: var(--bg2); font-weight: 700; color: var(--ink); }
+.wf-tbl .th span { display: flex; align-items: center; gap: 4px; }
+.wf-tbl .ph { color: var(--mute); }
+.wf-note { font-size: 11.5px; color: var(--mute); margin-top: 6px; }
+.mk { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--hl); color: #fff; font-style: normal; font-weight: 800; font-size: 11px; line-height: 1; flex: none; }
+.dsc { display: grid; gap: 8px; }
+.di { display: flex; gap: 10px; align-items: flex-start; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.di .mk { margin-top: 2px; }
+.di b { color: var(--ink); font-size: 14px; }
+.di p { font-size: 13.5px; margin: 2px 0 0; line-height: 1.55; }
+.tbd { font-size: 11.5px; font-weight: 700; color: var(--hl); border: 1px solid var(--hl); border-radius: 6px; padding: 0 5px; white-space: nowrap; }
+.states { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.sc { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--card); }
+.sc .sh { font-weight: 800; color: var(--ink); font-size: 14px; margin-bottom: 8px; }
+.sc p { font-size: 13px; margin: 8px 0 0; line-height: 1.55; }
+.mini { background: var(--bg2); border-radius: 8px; padding: 8px; display: grid; gap: 6px; min-height: 96px; align-content: start; }
+.mrow { display: flex; justify-content: flex-end; }
+.mbtn { font-size: 11px; font-weight: 800; padding: 1px 8px; border-radius: 5px; }
+.mbtn.off { background: var(--line); color: var(--mute); }
+.mbtn.on { background: var(--accent); color: #fff; }
+.mline { height: 20px; border-radius: 4px; background: var(--card); border: 1px dashed var(--line); font-size: 10.5px; display: flex; align-items: center; justify-content: flex-end; padding: 0 6px; }
+.mline.fill { border-style: solid; }
+.mline.lock { background: var(--line); }
+.mline em { font-style: normal; color: var(--accent); font-weight: 700; }
+.mline em.g { color: var(--ok); }
+.mres { display: grid; grid-template-columns: repeat(3, 1fr); font-size: 11px; text-align: center; background: var(--card); border-radius: 4px; color: var(--body); }
+.mres span { padding: 2px 0; }
+.plus { width: 20px; height: 20px; border-radius: 5px; background: var(--accent); color: #fff; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+.tc { border: 1px solid var(--line); border-top: 3px solid var(--ok); border-radius: 12px; padding: 14px 16px; background: var(--card); overflow-wrap: anywhere; }
+.tc.blk { border-top-color: var(--mute); }
+.tc .id { font-size: 12px; font-weight: 800; color: var(--ok); }
+.tc.blk .id { color: var(--mute); }
+.tc .t { font-weight: 800; color: var(--ink); margin: 2px 0 8px; }
+.tc dl { margin: 0; }
+.tc dt { font-size: 11.5px; font-weight: 800; color: var(--accent); }
+.tc dd { margin: 0 0 6px; font-size: 13.5px; color: var(--body); line-height: 1.55; }
+.tcname { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--card); }
+.tcname > code { display: block; background: none; padding: 0; font-size: 13.5px; line-height: 1.6; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: 13px; color: var(--body); }
+.legend b { color: var(--hl); margin-right: 4px; }
+table.trace td.n { font-weight: 800; color: var(--ink); text-align: right; width: 56px; }
+
+/* views · map · back */
+section[id], header[id] { scroll-margin-top: 64px; }
+.js .view { display: none; }
+.js .view.on { display: block; }
+nav .l { padding: 6px 2px; border-bottom: 2px solid transparent; }
+nav .l.on { color: var(--accent); border-bottom-color: var(--accent); }
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.mg { margin-top: 22px; }
+.mg-h { font-size: 13px; font-weight: 800; letter-spacing: .04em; margin-bottom: 10px; }
+.mg-h a { color: var(--mute); }
+a.mc { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--card); color: var(--ink); overflow-wrap: anywhere; transition: border-color .15s, transform .15s; }
+a.mc:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+a.mc .tg { font-size: 12px; font-weight: 700; color: var(--mute); }
+a.mc b { font-size: 16px; line-height: 1.4; }
+a.mc p { font-size: 13.5px; margin: 0; color: var(--body); line-height: 1.55; }
+a.mc .mn { font-size: 14px; font-weight: 800; color: var(--hl); margin-top: auto; padding-top: 6px; }
+a.mc .mn::after { content: "  →"; color: var(--accent); }
+.back { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+.back a { font-size: 14px; font-weight: 700; padding: 8px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.back a:hover { border-color: var(--accent); text-decoration: none; }
+.toplink { display: none; }
+
+@media screen and (max-width: 760px) {
+  .grid4 { grid-template-columns: minmax(0, 1fr); }
+  .pipe, .spec { grid-template-columns: minmax(0, 1fr); }
+  .states { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kpi .n { font-size: 21px; }
-  nav .l { display: none; }
+  nav .wrap { gap: 14px; }
+  nav .l { font-size: 13px; }
   .grid3, .two, .results { grid-template-columns: minmax(0, 1fr); }
   header.hero { padding-block: 48px 32px; }
 }
@@ -130,45 +221,80 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
   body { font-size: 12.5px; }
   section { padding-block: 22px; }
   .ch { break-before: page; }
-  .card, .res, .kpi, tr { break-inside: avoid; }
+  .js .view { display: block !important; }
+  .back { display: none; }
+  .toplink { display: block; float: right; font-size: 11px; font-weight: 700; color: var(--accent); margin-top: 2px; }
+  .part { break-before: page; }
+  .part + .ch { break-before: avoid; }
+  #map { break-before: page; }
+  header.hero { padding-block: 16px 4px; }
+  h1 { font-size: 34px; margin: 4px 0 8px; }
+  .hook { font-size: 16px; }
+  .summary { margin-top: 8px; }
+  .kpis { margin-top: 12px; gap: 8px; }
+  .kpi { padding: 10px 12px; }
+  .kpi .n { font-size: 19px; }
+  #overview { padding-block: 12px; }
+  #overview .lead { margin-bottom: 10px; }
+  #overview td, #overview th { padding: 7px 10px; }
+  .bridge { margin-top: 10px; padding: 10px 14px; }
+  #map { padding-block: 10px 0; }
+  .mg { margin-top: 8px; }
+  .mg-h { margin-bottom: 6px; }
+  #competency { padding-block: 6px 0; border-top: 0; }
+  #competency h2 { font-size: 16px; margin-bottom: 6px; }
+  #competency .grid3 { gap: 8px; }
+  #competency .card { padding: 8px 10px; border-radius: 10px; }
+  #competency .card .t { margin-bottom: 2px; font-size: 12px; }
+  #competency .card p { font-size: 11px; line-height: 1.5; }
+  .grid4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .mg { margin-top: 12px; }
+  a.mc { break-inside: avoid; padding: 10px 12px; gap: 4px; }
+  a.mc:hover { transform: none; }
+  a.mc b { font-size: 13px; }
+  a.mc p { display: none; }
+  #competency { break-inside: avoid; }
+  a.mc .mn { font-size: 11.5px; padding-top: 2px; }
+  .card, .res, .kpi, tr, .tc, .sc, .st, .di, .tcname { break-inside: avoid; }
+  .wf, .states, .table-wrap:has(table.trace) { break-inside: avoid; }
+  h4 { break-after: avoid; }
   details { border: 0; padding: 0; }
   a { color: inherit; }
 }
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
     <a class="name" href="#top">유창훈</a>
-    <a class="l" href="#overview">한눈에</a>
-    <a class="l" href="#seegene">씨젠</a>
-    <a class="l" href="#before">이전 경력</a>
-    <a class="l" href="#records">특허 · 연구</a>
+    <a class="l" data-v="home" href="#top">요약</a>
+    <a class="l" data-v="seegene" href="#seegene">씨젠 경력</a>
+    <a class="l" data-v="practice" href="#practice">화면 기획</a>
+    <a class="l" data-v="before" href="#before">바이오 R&amp;D</a>
+    <a class="l" data-v="records" href="#records">학력 · 특허</a>
   </div>
 </nav>
 
+<div class="view" data-view="home">
 <header class="hero" id="top">
   <div class="wrap">
     <div class="kicker">PRODUCT OWNER · 바이오 × IT 서비스 기획</div>
     <h1>유창훈</h1>
     <p class="hook"><b>바이오 R&amp;D 6년, 바이오 IT 서비스 기획 6년.</b><br>도메인 전문가의 문제를 제품으로 바꾸는 12년차 PO입니다.</p>
-    <p class="summary">진단 시약 연구원 200여 명이 쓰는 유전자 분석 플랫폼의 클라우드 전환 · 런칭을 총괄해 대용량 분석 처리시간을 80% 이상 단축했고, AI 업무 체계를 팀에 도입해 R&amp;D 총괄 포상을 받았습니다. 진단 제품 개발자로 식약처 인허가 4건 · 임상 2건을 경험해, 의료 · 바이오 전문가와 같은 언어로 요구사항을 정의합니다.</p>
-    <ul class="points">
-      <li><span>01</span>연구원용 분석 플랫폼 클라우드 전환 · 런칭 총괄 — 처리시간 80%+ 단축, 인력 30% 감소에도 일정 준수</li>
-      <li><span>02</span>AI 업무 자동화로 팀 생산성 개선 — 신규 팀원 업무 환경 셋업 30분, 2026 R&amp;D 총괄 포상</li>
-      <li><span>03</span>진단 제품 개발 — 식약처 인허가 4건 · 해외 임상 2건 · 특허 11건 (등록 5)</li>
-    </ul>
+    <p class="summary">진단 시약 연구원 200여 명이 쓰는 유전자 분석 플랫폼의 클라우드 전환 · 런칭을 총괄하며 개발 · 인프라 팀과 함께 대용량 분석 처리시간을 80% 이상 단축했고, AI 업무 체계를 팀에 도입해 R&amp;D 총괄 포상을 받았습니다. 진단 제품 개발자로 식약처 인허가 4건 · 임상 2건을 경험해, 의료 · 바이오 전문가와 같은 언어로 요구사항을 정의합니다. 연구원뿐 아니라 더 많은 사용자가 쓰는 서비스를 기획하는 것이 다음 목표입니다.</p>
 
     <div class="kpis">
+      <div class="kpi"><div class="n">80%+ 단축</div><div class="l">대용량 분석 1건 처리 시간 18시간 → 3시간 이내 (기존 시스템 대비)</div></div>
       <div class="kpi"><div class="n">200여 명</div><div class="l">연구원이 쓰는 분석 플랫폼을 클라우드 웹으로 전환 · 런칭 (2026.10)</div></div>
-      <div class="kpi"><div class="n">80%+ 단축</div><div class="l">대용량 분석 1건 처리 시간 (기존 시스템 대비)</div></div>
       <div class="kpi"><div class="n">특허 11건</div><div class="l">등록 5건 · 웹 기반 설계 화면 특허 포함</div></div>
       <div class="kpi"><div class="n">포상 2회</div><div class="l">R&amp;D 총괄 포상 — 감염병 긴급 대응(2024) · AI 업무 체계(2026)</div></div>
     </div>
 
     <div class="cta">
-      <a class="btn primary" href="#seegene">상세 경력 보기</a>
+      <a class="btn primary" href="#map">사례 한눈에 보기</a>
+      <a class="btn" href="#practice">화면 기획 사례</a>
       <a class="btn" href="유창훈_포트폴리오.pdf">PDF로 보기</a>
     </div>
   </div>
@@ -182,8 +308,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <div class="table-wrap">
       <table>
         <tr><th>시기</th><th>역할</th><th>집중한 것</th><th>대표 성과</th></tr>
-        <tr class="now"><td class="y">2024 – 현재</td><td><b>씨젠</b> · 웹기획팀 팀장</td><td>연구원이 쓰기 편한 플랫폼 — 사용 편의성 · 대기 시간 · 운영 비용</td><td>클라우드 플랫폼 런칭 총괄 · 처리 시간 84% 단축 · AX 체계 구축</td></tr>
-        <tr><td class="y">2020 – 2023</td><td><b>씨젠</b> · 운영 → 기획 · PO</td><td>사용자와 개발자 사이 — 현장의 요청을 요구사항으로</td><td>플랫폼 운영 · 감염병 대응 · 웹 전환 PO · 2024 포상</td></tr>
+        <tr class="now"><td class="y">2024 – 현재</td><td><b>씨젠</b> · 웹기획팀 팀장 · 프로젝트 총괄(2025.11~)</td><td>연구원이 쓰기 편한 플랫폼 — 사용 편의성 · 대기 시간 · 운영 비용</td><td>클라우드 플랫폼 런칭 총괄 · 처리 시간 80%+ 단축 · AX 체계 구축</td></tr>
+        <tr><td class="y">2020 – 2023</td><td><b>씨젠</b> · 운영 → 기획 · PO(2022~)</td><td>사용자와 개발자 사이 — 현장의 요청을 요구사항으로</td><td>플랫폼 운영 · 감염병 대응 · 웹 전환 PO · 2024 포상</td></tr>
         <tr><td class="y">2020</td><td><b>프로지니어</b> · 신기술 PoC</td><td>신기술의 임상 적용 가능성 검증</td><td>데이터로 Go/No-Go 판단 → SW 기획으로 전환</td></tr>
         <tr><td class="y">2014 – 2019</td><td><b>롤링스톤</b> · 진단 제품 개발 팀장</td><td>연구를 인증받는 제품으로 — 성능 검증 · 인허가</td><td>식약처 인허가 4건 · 장비 알고리즘 · 원료 내재화</td></tr>
         <tr><td class="y">2005 – 2014</td><td><b>경희대</b> · 바이러스 연구</td><td>보이지 않는 바이러스의 검출과 데이터 기반 예측</td><td>정부 과제 실무 총괄 11건 · 예측 모델 · 논문 5편</td></tr>
@@ -191,7 +317,49 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     </div>
     <div class="bridge">진단 제품을 만들며 <b>같은 시약도 분석 알고리즘과 소프트웨어에 따라 결과가 달라진다</b>는 것을 직접 겪었습니다. 그래서 연구원의 언어를 아는 기획자로 자리를 옮겼고, 지금은 그 언어를 개발자가 구현할 수 있는 요구사항과 검증 기준으로 옮기는 일을 합니다.</div>
 
-    <h4>핵심 역량</h4>
+  </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section id="map">
+  <div class="wrap">
+    <h2>사례 한눈에</h2>
+    <p class="lead">카드를 누르면 상세로 이동합니다. 상세 끝의 「사례 목록」 버튼으로 이 목록에 돌아옵니다.</p>
+
+    <div class="mg"><div class="mg-h"><a href="#seegene">PART 1 · 씨젠 — 서비스 기획자 · 팀장</a></div>
+    <div class="grid3">
+      <a class="mc" href="#s1"><span class="tg">2022 – 2026 · PO → 프로젝트 총괄</span><b>사내 설계 · 분석 플랫폼 클라우드 전환 · 런칭</b><p>연구원 200여 명이 쓰는 설치형 SW 를 클라우드 웹으로 · 인력 30% 감소에도 목표 유지</p><span class="mn">18시간 → 3시간 이내 · 성공률 98.4%</span></a>
+      <a class="mc" href="#s2"><span class="tg">2024 – 현재 · 팀장 · 팀원 10명</span><b>웹기획팀 리딩 · AX 도입</b><p>바이오 전공 팀원을 기획 · 검증 인력으로 · 팀 공용 AI 업무 체계</p><span class="mn">셋업 30분 · 2026 R&amp;D 총괄 포상</span></a>
+      <a class="mc" href="#s3"><span class="tg">2020 – 현재 · 운영 · 기획</span><b>연구원 지원 운영 · 감염병 대응</b><p>코로나19 · 엠폭스 — 연구원과 개발자 사이 소통 창구</p><span class="mn">엠폭스 23일 대응 · 2024 R&amp;D 총괄 포상</span></a>
+    </div></div>
+
+    <div class="mg"><div class="mg-h"><a href="#practice">PART 2 · 화면 기획 실무 — 기획서 한 장이 검증까지</a></div>
+    <div class="grid4">
+      <a class="mc" href="#p0"><span class="tg">기획 실무 ①</span><b>일하는 흐름</b><p>요구사항 → 화면 기획 → 테스트 케이스 → 검증 → 배포</p><span class="mn">화면 800여 개 · 테스트 케이스 6,700여 건</span></a>
+      <a class="mc" href="#p1"><span class="tg">기획 실무 ②</span><b>화면 기획서 한 장 — Tm 계산기</b><p>번호 마커 · 설명 · 제약 · 상태 · 변경 기록</p><span class="mn">설명 12 · 제약 5 · 상태 4</span></a>
+      <a class="mc" href="#p2"><span class="tg">기획 실무 ③</span><b>기획서에서 테스트 케이스로</b><p>기획서 번호가 케이스 이름에 그대로</p><span class="mn">57건 · Passed 52</span></a>
+      <a class="mc" href="#p3"><span class="tg">기획 실무 ④</span><b>공통 정책과 화면 일관성</b><p>정책 하나가 바뀌면 영향 화면부터</p><span class="mn">공통 정책 230개 규칙</span></a>
+    </div></div>
+
+    <div class="mg"><div class="mg-h"><a href="#before">PART 3 · 바이오 R&amp;D — 기획의 기반</a></div>
+    <div class="grid4">
+      <a class="mc" href="#b1"><span class="tg">2020 · 프로지니어</span><b>신규 진단기술 PoC</b><p>암 바이오마커 검출 기술의 임상 적용성 검증</p><span class="mn">데이터로 No-Go 판단</span></a>
+      <a class="mc" href="#b2"><span class="tg">2018 – 2019 · 산학 프로젝트</span><b>진단 핵심 원료 내재화</b><p>수입 의존 표준물질 원료의 자체 생산</p><span class="mn">생산 클론 4종 · SOP 납품</span></a>
+      <a class="mc" href="#b3"><span class="tg">2014 – 2018 · 선임연구원 · 팀장</span><b>감염병 진단 제품 개발 · 인허가</b><p>성능 검증 · 인허가 체계를 처음부터</p><span class="mn">식약처 인허가 4건 · 해외 임상 2건</span></a>
+      <a class="mc" href="#b4"><span class="tg">2005 – 2014 · 경희대</span><b>바이러스를 데이터로 본 연구</b><p>환경 바이러스 검출법 · 오염 예측 모델</p><span class="mn">정부 과제 실무 총괄 11건 · 논문 5편</span></a>
+    </div></div>
+
+    <div class="mg"><div class="mg-h"><a href="#records">기록 — 학력 · 수상 · 특허 · 연구</a></div>
+    <div class="grid3">
+      <a class="mc" href="#records"><span class="tg">학력 · 수상 · 특허 · 논문</span><b>학력 · 수상 · 특허 · 연구</b><p>경희대 생명공학 석박사 통합과정 수료 · R&amp;D 총괄 포상 2회</p><span class="mn">특허 11건(등록 5) · 논문 5편</span></a>
+    </div></div>
+  </div>
+</section>
+
+<!-- ================= COMPETENCY ================= -->
+<section id="competency">
+  <div class="wrap">
+    <h2>핵심 역량</h2>
     <div class="grid3">
       <div class="card"><div class="t">Product Management</div><p>요구사항 분석 · 우선순위, 화면 기획 · IA, 백로그 · 스크럼 운영</p></div>
       <div class="card"><div class="t">클라우드 서비스 기획 · 런칭</div><p>설치형 → 웹 전환, 단계별 런칭 검증, 사용자 전환</p></div>
@@ -203,6 +371,9 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
   </div>
 </section>
 
+</div>
+
+<div class="view" data-view="seegene">
 <!-- ================= SEEGENE ================= -->
 <section class="part" id="seegene">
   <div class="wrap">
@@ -215,10 +386,11 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
 <!-- S1 -->
 <section class="ch" id="s1">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">씨젠 ① · 2022.01 – 2026.10</div>
     <h2>사내 in-silico 설계 · 분석 플랫폼 클라우드 전환 · 런칭</h2>
-    <div class="meta"><span class="tag">PO (2022 – 2025)</span><span class="tag">팀장 (2024 – )</span><span class="tag">프로젝트 총괄 (2025.11 – )</span><span class="tag">48명 · 3개 팀 협업</span></div>
-    <div class="rs"><div><span>역할</span>PO → 프로젝트 총괄 (참여 인력 48명 · 3개 팀 협업)</div><div><span>주요성과</span>대용량 분석 처리시간 80% 단축(18시간 → 3시간 이내) · 부하 테스트 성공률 98.4% · 인력 30% 감소에도 계획한 날짜에 런칭</div></div>
+    <div class="meta"><span class="tag">PO (2022 – 2025)</span><span class="tag">팀장 (2024 – )</span><span class="tag">프로젝트 총괄 (2025.11~)</span><span class="tag">48명 · 3개 팀 협업</span></div>
+    <div class="rs"><div><span>역할</span>PO(2022.01~) → 프로젝트 총괄(2025.11~) (참여 인력 48명 · 3개 팀 협업)</div><div><span>주요성과</span>대용량 분석 처리시간 80%+ 단축(18시간 → 3시간 이내) · 부하 테스트 성공률 98.4% · 인력 30% 감소에도 목표를 줄이지 않고 2026.10 런칭</div></div>
     <div class="q"><div class="k">질문</div><p>연구원이 더 편하게 쓰고, 더 빨리 결과를 받고, 회사는 합리적인 비용으로 운영하는 플랫폼을 어떻게 만들 것인가</p></div>
 
     <h4>어떤 서비스인가</h4>
@@ -244,7 +416,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <li>화면 기획서 · 기능 명세 · IA 작성, 신규 웹 화면 157개 · 입력 제한과 공통 동작 등 공통 정책 230개를 전 화면에 일관 적용</li>
       <li>운영자 대행 없이 <b>연구원이 웹에서 직접</b> 요청 · 진행 상황 확인 · 결과 수정 · 재실행까지 하도록 흐름 설계</li>
       <li>기획한 웹 기반 멀티플렉스 설계 화면을 <b>특허 출원</b> (출원 10-2025-0053485)</li>
-      <li>UI/UX · 개발 외주 2개사 동시 관리 (디자인 리뷰 추적 · 개발 이슈 데일리 스크럼)</li>
+      <li>UI/UX(이니션) · 개발(메가존) 외주 2개사 동시 관리 (디자인 리뷰 추적 · 개발 이슈 데일리 스크럼)</li>
+      <li>QA · 매뉴얼 외주(펜타웍스) — 계약 협의부터 납품물 · 검수 기준 정의 · 종료까지 관리</li>
     </ul>
 
     <h4>② 대기 시간 — 알고리즘과 인프라</h4>
@@ -262,33 +435,36 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     </ul>
 
     <h4>④ 검증 — 런칭 여부는 결과로</h4>
-    <p>기능 → 통합 2단계 QA 구조를 정의하고, 런칭 전에는 단계마다 합격 기준을 먼저 정한 5단계 검증을 설계했습니다. 참여 인력이 30% 줄었을 때는 범위를 줄이는 대신 AI 도구 도입 · QA 외주 분리 · 모듈 순서 재배치로 계획을 바꿔 일정을 지켰습니다.</p>
+    <p>기능 → 통합 2단계 QA 구조를 정의하고, 런칭 전에는 단계마다 합격 기준을 먼저 정한 5단계 검증을 설계했습니다. 참여 인력이 30% 줄었을 때는 범위를 줄이는 대신 AI 도구 도입 · QA 외주(펜타웍스) 분리 · 모듈 순서 재배치로 계획을 바꿔 목표를 지켰습니다.</p>
+    <div class="bridge"><b>가장 어려웠던 결정 — 인력이 줄어도 목표는 줄이지 않기.</b> 2026년 2월 과제 중간에 참여 인력이 30% 줄었습니다(부서별 최대 47%). 목표(작업 성공률 95% · 동시 처리 기존 대비 150%)는 그대로였습니다. 범위를 덜어내는 대신 AI 도구 도입 · 단위검증과 매뉴얼 외주화 · 모듈 순서와 일정 재배치 3안으로 변경심의 승인을 받았고, 결과는 작업 성공률 98.4% · 동시 처리 23건 → 35건 · 2026.10 사용자 오픈입니다.</div>
     <div class="flow"><span>기능 테스트</span><i>→</i><span>사용자 시나리오</span><i>→</i><span>실서버 부하</span><i>→</i><span>베타 (8명 · 2주 · 의견 190건)</span><i>→</i><span>결과 비교</span></div>
 
     <h4>결과 — 사용자와 회사가 얻은 것</h4>
     <div class="results">
-      <div class="res"><div class="n">18시간 → 2시간 51분</div><div class="l"><b>결과까지 기다리는 시간</b> 84% 단축 — 다음 날 보던 결과를 당일 확인</div><div class="c">※ 2,600만 건 규모 유전체 데이터 대상 동일 입력 1건, 기존 시스템 대비</div></div>
-      <div class="res"><div class="n">1.5배 이상</div><div class="l"><b>동시에 처리하는 작업 수</b> — 대기열이 줄어듦 (분석 모듈은 최대 15배)</div><div class="c">※ 같은 서버 구성 기준, 기존 시스템 대비</div></div>
+      <div class="res"><div class="n">18시간 → 3시간 이내</div><div class="l"><b>결과까지 기다리는 시간</b> 80% 이상 단축 — 다음 날 보던 결과를 당일 확인</div><div class="c">※ 2,600만 건 규모 유전체 데이터 대상 동일 입력 1건, 기존 시스템 대비</div></div>
+      <div class="res"><div class="n">1.5배 이상</div><div class="l"><b>동시에 처리하는 작업 수</b> — 대기열이 줄어듦 (분석 모듈은 최대 15배)</div><div class="c">※ 같은 서버 구성 기준 23건 → 35건 (목표 150%), 기존 시스템 대비</div></div>
       <div class="res"><div class="n">운영비 ↓ · 종량제</div><div class="l"><b>같은 작업량 기준 운영비가 기존보다 낮아짐</b> — 고정비를 쓴 만큼 내는 구조로 전환</div><div class="c">※ 서열 검색 월 비용 −62% · 노드 시간 단가 −73%</div></div>
       <div class="res"><div class="n">98.4% · 98.6%</div><div class="l"><b>신뢰성</b> — 부하 테스트 984건 중 968건 정상 완료(목표 95%) · 기존 시스템과 결과 98.6% 일치 확인 후 전환</div></div>
     </div>
     <ul>
       <li><b>셀프서비스</b> · 운영자 대행 없이 연구원이 웹에서 직접 요청 · 확인 · 재실행</li>
       <li><b>사용자 목소리 반영</b> · 1차 요구사항 143건 중 55건이 사용자 의견에서 나옴 · 기존 개선 요청 43건 중 38건 반영</li>
-      <li><b>전환</b> · 계획한 날짜(2026.10)에 런칭 · 설명회 140명(주 사용 부서의 76%) · 온보딩 교육 18회 · 런칭 다음 날부터 새 서비스와 기존 시스템 사용량을 매일 대조</li>
+      <li><b>전환</b> · 2026.10 런칭 · 설명회 140명(주 사용 부서의 76%) · 온보딩 교육 18회 · 런칭 다음 날부터 새 서비스와 기존 시스템 사용량을 매일 대조</li>
     </ul>
 
     <div class="carry"><div class="k">가져간 것</div><p>좋은 플랫폼은 기능 수가 아니라, 사용자가 결과를 받기까지 걸리는 시간과 그 비용으로 증명된다.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#s2">다음 · 웹기획팀 리딩 · AX →</a></div>
   </div>
 </section>
 
 <!-- S2 -->
 <section class="ch" id="s2">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">씨젠 ② · 2024.01 – 현재</div>
     <h2>웹기획팀 리딩 · 육성 — AX 도입과 사내 웹기획 업무 통합</h2>
     <div class="meta"><span class="tag">팀장 · 팀원 10명</span><span class="tag">Scrum · Azure DevOps</span><span class="tag">Claude Code · RAG</span><span class="tag">2026 R&amp;D 총괄 포상</span></div>
-    <div class="rs"><div><span>역할</span>웹기획팀 팀장 (팀원 10명)</div><div><span>주요성과</span>신규 팀원 업무 환경 셋업 30분 · 팀원이 자발적으로 만든 자동화 도구 4종 · 2026 R&amp;D 총괄 포상</div></div>
+    <div class="rs"><div><span>역할</span>웹기획팀 팀장 (팀원 10명)</div><div><span>주요성과</span>신규 팀원 업무 환경 셋업 30분 · 팀 스킬 12종 중 4종 팀원 제작 · 2026 R&amp;D 총괄 포상</div></div>
     <div class="q"><div class="k">질문</div><p>바이오 전공자 중심의 팀이, 사람마다 다른 결과가 아니라 같은 수준의 기획 산출물을 낼 수 있을까</p></div>
 
     <h4>팀 관리 — 스크럼과 Azure DevOps</h4>
@@ -300,7 +476,8 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
 
     <h4>육성 — 배우는 조직</h4>
     <ul>
-      <li>바이오 전공 팀원 대상 IT 교육 설계 (2023 – ) — 매주 2시간 오프라인 멘토링 · Python · 서비스 기획 과정 공동 수강과 리뷰</li>
+      <li>디자이너 1명을 뺀 팀원 전원이 바이오 전공 — Figma · Python · 플랫폼 교육(매주 2시간 오프라인 멘토링, 2023 – )에 1년 넘게 투자해 지금 시스템의 기획 · 검증을 맡는 인원으로 육성</li>
+      <li>정책을 규칙 단위로 정리 · 구조화 — 바이오 배경 팀원이 기획 기준을 정확히 이해하도록 해 적응 시간 단축 (→ 화면 기획 실무 ④)</li>
       <li>팀원마다 다른 교육 계획 — 디자이너에게는 도메인 교육, 기획자에게는 설계 프로그램 실습</li>
       <li>신입 OJT 5명 담당 (2020 – 2024) · 그중 1명은 현재 팀 핵심 QA 담당</li>
     </ul>
@@ -331,29 +508,32 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     <h4>결과</h4>
     <div class="results">
       <div class="res"><div class="n">30분</div><div class="l">신규 팀원 업무 환경 셋업 — 처음부터 다시 배우던 것을 스크립트 한 번으로</div></div>
-      <div class="res"><div class="n">875건 · 5일</div><div class="l">런칭 전 대규모 테스트 — 사람이 화면을 조작하던 작업을 자연어 지시 자동화로</div></div>
+      <div class="res"><div class="n">875건 · 5일</div><div class="l">런칭 전 대규모 테스트 — 사람이 화면을 조작하던 작업을 자연어 지시 자동화로 · 860건 완료 · 누락 0</div></div>
       <div class="res"><div class="n">PR 103건</div><div class="l">한 분기 동안 팀원 5명과 옆 팀이 같은 저장소에 기여</div></div>
-      <div class="res"><div class="n">4종</div><div class="l">팀원이 자발적으로 만들어 팀 전체가 쓰는 자동화 도구</div></div>
+      <div class="res"><div class="n">4종 / 12종</div><div class="l">팀 스킬 12종 중 팀원이 자발적으로 만든 것 — 수기 검증 절차를 스킬로 바꿔 3명이 107항목 · 150회 사용</div></div>
     </div>
     <ul>
       <li>팀원 간 AI 작업 결과가 상향 평준화 → <b>2026 3분기 R&amp;D 총괄 포상</b></li>
-      <li>직접 만든 버그 검토 챗봇의 판정 정확도가 기준에 못 미친다는 것을 측정해 배포를 보류하고 방향 전환</li>
+      <li>직접 만든 버그 검토 챗봇의 판정 정밀도가 42 ~ 47%로 단순 기본값(67.6%)보다 낮다는 것을 측정해 배포를 보류하고 방향 전환</li>
+      <li>웹기획 자동화 파이프라인 실행시간 25분 → 2.2분 — 병목의 60%가 AI 모델 밖에 있음을 계측으로 확인</li>
     </ul>
 
     <h4>범위 확장</h4>
     <p>인실리코 플랫폼 기획에서 출발해, 포털 등 사내 웹서비스 기획 업무를 팀으로 통합해 가는 중입니다.</p>
 
     <div class="carry"><div class="k">가져간 것</div><p>AI는 개인의 생산성 도구가 아니라 팀의 인프라로 설계할 때 효과가 커진다. 그리고 AI 결과도 지표로 판단한다.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#s3">다음 · 운영 · 감염병 대응 →</a></div>
   </div>
 </section>
 
 <!-- S3 -->
 <section class="ch" id="s3">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">씨젠 ③ · 2020.06 – 현재</div>
     <h2>연구원 지원을 위한 in-silico 운영 · 대응 (COVID-19 · 엠폭스 등)</h2>
     <div class="meta"><span class="tag">운영 · 기획 · 데이터 분석</span><span class="tag">2024 R&amp;D 총괄 포상</span></div>
-    <div class="rs"><div><span>역할</span>플랫폼 운영 · 사용자(진단시약 연구원)와 개발자(SW연구소) 사이 소통 창구</div><div><span>주요성과</span>엠폭스 긴급 개발 지원으로 제품 후보 15개 중 10개 선별 · 데이터 누락 선제 발견으로 2024 R&amp;D 총괄 포상 · 사후관리 문서 35개 제품 5일 만에 90% 완료</div></div>
+    <div class="rs"><div><span>역할</span>플랫폼 운영 · 사용자(진단시약 연구원)와 개발자(SW연구소) 사이 소통 창구</div><div><span>주요성과</span>엠폭스 긴급 개발 지원으로 제품 후보 15종 중 설계 가능한 10종 선별 지원 · 데이터 누락 선제 발견으로 2024 R&amp;D 총괄 포상 · 사후관리 문서 35개 제품 5일 만에 90% 완료</div></div>
     <div class="q"><div class="k">질문</div><p>연구원(사용자)과 개발자 사이에서, 서로의 언어를 어떻게 옮길 것인가</p></div>
     <p>기존 설치형 플랫폼을 운영하며 사용자(진단 시약 연구원)와 개발자(SW연구소) 사이의 소통 창구 역할을 맡았습니다. 도구를 쓰는 사람의 자리에서 일한 이 경험이 이후 도구를 정의하는 기획의 바탕이 됐습니다.</p>
 
@@ -377,7 +557,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
         <div class="t">감염병 대응 — 엠폭스 긴급 개발 지원 (2024 · 23일)</div>
         <ul>
           <li>개발팀과 실시간 채널 운영 · 최신 유전체 데이터를 직접 수집해 분석 기준 데이터를 3일 간격으로 갱신 배포</li>
-          <li>제품 후보 15개 특이성 분석 → 제품화 가능한 <b>10개 선별</b></li>
+          <li>제품 후보 15종 특이성 분석 → 설계 가능한 <b>10종 선별</b> 지원 (23일)</li>
           <li>분석 기준 데이터에 일부 바이러스 데이터가 빠져 있는 문제를 먼저 발견해 영향 범위를 보고 → <b>2024 R&amp;D 총괄 포상</b></li>
         </ul>
       </div>
@@ -393,13 +573,197 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
     </div>
 
     <div class="carry"><div class="k">가져간 것</div><p>연구원이 "이게 안 된다"고 할 때 요구사항으로, 개발자가 "이렇게 동작한다"고 할 때 검증 기준으로 옮기는 일. 두 언어 사이의 번역이 기획의 출발점이다.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#practice">다음 · 화면 기획 실무 →</a></div>
   </div>
 </section>
 
+</div>
+
+<div class="view" data-view="practice">
+<!-- ================= PLANNING PRACTICE ================= -->
+<section class="part" id="practice">
+  <div class="wrap">
+    <div class="label">PART 2 · 화면 기획 실무 · 2022 – 현재</div>
+    <h2>화면 기획은 이렇게 합니다</h2>
+    <p class="lead">기획서의 번호 하나가 개발 · 테스트 · 검증 결과까지 그대로 이어지도록 일합니다. 실제 기획한 화면 하나를 골라, 기획서 한 장이 어떻게 구성되고 그 번호가 어디까지 따라가는지 보여드립니다.</p>
+  </div>
+</section>
+
+<!-- P0 -->
+<section class="ch" id="p0">
+  <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
+    <div class="kicker">기획 실무 ① · 일하는 흐름</div>
+    <h2>요구사항부터 배포까지, 같은 번호로</h2>
+    <div class="rs"><div><span>역할</span>요구사항 정의 · 화면 기획 · QA 설계 · 배포 검증 (팀장 · PO)</div><div><span>규모</span>팀 전체 기획 화면 800여 개 (5개 서비스) · 이 중 440여 개 화면에 테스트 케이스 6,700여 건이 화면 번호로 연결</div></div>
+    <div class="q"><div class="k">질문</div><p>화면이 수백 개로 늘어도, 기획 · 개발 · QA 가 같은 기준을 보고 일하려면 무엇이 필요한가</p></div>
+
+    <div class="pipe">
+      <div class="st"><div class="h">1 · 요구사항</div><p>사용자 문의 · 설문 · 기존 개선 요청을 의도별로 분류</p><div class="o">Azure DevOps Boards — Epic → Feature</div></div>
+      <div class="st"><div class="h">2 · 화면 기획</div><p>Figma 화면마다 번호 마커 + 번호별 설명 + 상태 케이스 + 제약</p><div class="o">화면 ID 체계 · 제약 190여 개 · 팝업 약 100개</div></div>
+      <div class="st"><div class="h">3 · 테스트 케이스</div><p>설명 번호 하나에 판정 기준별 케이스를 1:1 로 작성</p><div class="o">Azure DevOps Test Plans</div></div>
+      <div class="st"><div class="h">4 · 검증</div><p>기능 → 사용자 시나리오 → 부하 → 베타 → 결과 비교</p><div class="o">합격 기준을 먼저 정하고 결과로 판단</div></div>
+      <div class="st"><div class="h">5 · 배포</div><p>수요일 정기 배포 · 검증 서버 확인 후 운영 반영</p><div class="o">결함 상태 · Resolved → Tested → Done</div></div>
+    </div>
+
+    <h4>이 흐름을 받치는 장치</h4>
+    <div class="grid3">
+      <div class="card"><div class="t">화면 ID 체계</div><p>서비스 › 메뉴 › 화면 › 상태 순으로 ID 를 붙임. 예) 도구 Tm 계산기 입력 화면 <code>TX4.3</code>, 계산 후 상태 <code>TX4.3_b</code><br><span class="note">※ 화면 ID 는 임의 번호로 바꿈 (번호 체계는 실제와 같음)</span></p></div>
+      <div class="card"><div class="t">공통 정책 문서</div><p>필수 입력 표기 · 입력 제약 · 공통 컴포넌트 동작 등 230개 규칙을 따로 관리하고, 화면 기획서에는 정책 ID 로 연결</p></div>
+      <div class="card"><div class="t">기획 허브 (직접 개발)</div><p>Figma 기획서의 설명 · 제약 · 정책 · 테스트 케이스를 화면 단위로 한곳에서 조회 · 정책이 바뀌면 영향 화면을 찾음</p></div>
+    </div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#p1">다음 · 화면 기획서 한 장 →</a></div>
+  </div>
+</section>
+
+<!-- P1 -->
+<section class="ch" id="p1">
+  <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
+    <div class="kicker">기획 실무 ② · 화면 기획서 한 장</div>
+    <h2>사례 — 프라이머 녹는 온도(Tm) 계산기</h2>
+    <div class="meta"><span class="tag">편의 도구 · 요청 없이 즉시 사용</span><span class="tag">설명 12개 항목</span><span class="tag">제약 5개</span><span class="tag">상태 4개</span><span class="tag">테스트 케이스 57건</span></div>
+    <div class="rs"><div><span>역할</span>팀장 — 기획서 구성 기준(번호 · 상태 · 제약 ID · 공통 정책)을 정하고 운영 · 기획서에서 테스트 케이스 초안을 뽑는 규칙 개발</div><div><span>시기</span>기획 변경 2025.11 – 12 · 테스트 등록 · 수행 2026.07 – 08 (QA 외주 · 펜타웍스)</div></div>
+    <div class="q"><div class="k">문제</div><p>연구원이 올리고 서열 여러 개의 녹는 온도(Tm)를 확인하려면 분석 요청을 만들고 결과를 기다려야 했습니다. 엑셀에 정리해 둔 서열을 그대로 붙여 넣고 바로 결과를 받는 화면이 필요했습니다.</p></div>
+
+    <h4>기획서 구성 — 화면 + 번호 마커 + 번호별 설명</h4>
+    <div class="spec">
+      <div class="wf">
+        <div class="wf-top"><b>Tm Calculator</b><span class="sp"></span><span class="ico">매뉴얼</span><i class="mk in">8</i></div>
+        <div class="wf-row"><b>Oligo Info *</b><i class="mk in">1</i><span class="chip">Reset</span><i class="mk in">2</i><span class="sp"></span><span class="btn-off">Apply</span><i class="mk in">7</i></div>
+        <div class="wf-row"><b>Enzyme Type *</b><span class="sel">효소 선택 ▾</span><i class="mk in">3</i></div>
+        <div class="wf-tbl"><div class="cap">Primer<i class="mk in">4</i></div>
+          <div class="tr th"><span>Name</span><span>Sequence</span><span>Primer Type<i class="mk in">4.1</i></span></div>
+          <div class="tr"><span>F_primer_1</span><span>ACGTRYACGT…</span><span>자동 분류</span></div>
+          <div class="tr"><span class="ph">이름 입력 · 붙여넣기</span><span class="ph">서열 입력 · 붙여넣기</span><span>-</span></div></div>
+        <div class="wf-tbl"><div class="cap">Probe<i class="mk in">5</i></div>
+          <div class="tr th"><span>Name</span><span>Sequence</span><span></span></div>
+          <div class="tr"><span class="ph">이름</span><span class="ph">서열</span><span></span></div></div>
+        <div class="wf-tbl"><div class="cap">Pitcher · Catcher<i class="mk in">6</i></div>
+          <div class="tr th"><span>Name</span><span>Sequence</span><span>Tag<i class="mk in">6.1</i></span></div>
+          <div class="tr"><span class="ph">이름</span><span class="ph">서열</span><span>12 ▾</span></div></div>
+        <div class="wf-note">재구성 화면 · 실제 화면 구성과 규칙을 따르되 값은 예시 · 화면 ID 는 임의 번호로 바꿈 (번호 체계는 실제와 같음)</div>
+      </div>
+      <div class="dsc">
+        <div class="di"><i class="mk">1</i><div><b>Oligo Info</b><p>최대 150개 · 초과분은 즉시 입력 제외 + 안내 · 서열은 A · T · C · G · 축퇴 염기만 · 소문자는 대문자로 자동 변환</p></div></div>
+        <div class="di"><i class="mk">2</i><div><b>Reset</b><p>효소 · 올리고 입력값 전체 초기화</p></div></div>
+        <div class="di"><i class="mk">3</i><div><b>Enzyme Type *</b><p>필수 선택 · 최신 효소 목록 제공</p></div></div>
+        <div class="di"><i class="mk">4</i><div><b>Primer 입력</b><p>엑셀 복사 붙여넣기 — 빈 칸을 선택했으면 그 칸에, 아니면 목록 끝에 추가 · 열 수가 다르면 표 범위에 맞춤 · 행 삭제</p></div></div>
+        <div class="di"><i class="mk">4.1</i><div><b>Primer Type 자동 분류</b><p>서열 칸에서 벗어나는 즉시 특수 염기 개수 · 위치 규칙으로 3개 유형 중 하나로 분류 · 특정 유형이면 [+] 추가 입력 제공</p></div></div>
+        <div class="di"><i class="mk">5·6</i><div><b>Probe · Pitcher · Catcher</b><p>Primer 와 같은 입력 규칙 · Pitcher · Catcher 는 Tag 필수</p></div></div>
+        <div class="di"><i class="mk">6.1</i><div><b>Tag</b><p>서열 입력 후 12 로 자동 선택 · 11 / 12 / 13 변경 가능</p></div></div>
+        <div class="di"><i class="mk">7</i><div><b>Apply</b><p>기본 비활성 → 필수값이 정상이면 활성 → 실행 후 비활성 → 조건이 바뀌면 다시 활성 · 결과 영역으로 자동 이동 <span class="tbd">기술 검토 필요</span></p></div></div>
+        <div class="di"><i class="mk">8</i><div><b>Manual</b><p>사용자 매뉴얼 다운로드</p></div></div>
+        <div class="di"><i class="mk">–</i><div><b>추가 서열 입력</b><p>특정 유형에만 [+] 제공 · 추가하면 원 서열 잠금 · 바뀐 염기는 초록색 · 빈 칸이 있으면 Apply 비활성</p></div></div>
+      </div>
+    </div>
+
+    <h4>제약사항 — 검사 항목 · 조건 · 사용자 안내</h4>
+    <div class="table-wrap"><table>
+      <tr><th>검사 항목</th><th>제약 조건</th><th>사용자 안내 (원문)</th></tr>
+      <tr><td><b>올리고 개수</b></td><td>150개 초과 입력 시 초과분 즉시 제외</td><td><code>You can enter up to 150 oligos.</code></td></tr>
+      <tr><td><b>올리고 이름</b></td><td>25자 초과분 입력 불가</td><td><code>Oligo Name can be entered in 25 characters or less.</code></td></tr>
+      <tr><td><b>서열 길이</b></td><td>15 ~ 50자를 벗어나면 붙여 넣은 값 즉시 삭제</td><td><code>Oligo sequence length should be between 15 and 50 characters.</code></td></tr>
+      <tr><td><b>서열 문자</b></td><td>허용 문자(A · T · C · G · I · 축퇴 염기) 외 숫자 · 공백 · 특수 문자는 입력 불가 · 섞여 붙여 넣으면 즉시 제외</td><td>안내 토스트 노출</td></tr>
+      <tr><td><b>중복 입력</b></td><td>같은 표에 이미 있는 값과 같으면 즉시 제거</td><td><code>Duplicate values removed.</code></td></tr>
+    </table></div>
+    <p class="note">제약은 화면마다 다시 쓰지 않고 ID 로 관리합니다. 같은 제약을 쓰는 화면이 많아도 문구 · 조건이 어긋나지 않습니다.</p>
+
+    <h4>상태 케이스 — 같은 화면의 4가지 상태</h4>
+    <div class="states">
+      <div class="sc"><div class="sh">ⓐ 입력 전</div><div class="mini"><div class="mrow"><span class="mbtn off">Apply</span></div><div class="mline"></div><div class="mline"></div></div><p>Apply 비활성 · 필수 표기(*)로 입력할 곳을 안내</p></div>
+      <div class="sc"><div class="sh">ⓑ 입력 완료</div><div class="mini"><div class="mrow"><span class="mbtn on">Apply</span></div><div class="mline fill"></div><div class="mline fill"><em>자동 분류</em></div></div><p>필수값이 정상이면 Apply 활성 · 서열에서 벗어나는 즉시 Primer Type 표시</p></div>
+      <div class="sc"><div class="sh">ⓒ 계산 후</div><div class="mini"><div class="mrow"><span class="mbtn off">Apply</span></div><div class="mres"><span>Min</span><span>Max</span><span>Avg</span></div><div class="mres"><span>61.2</span><span>64.8</span><span>63.0</span></div></div><p>결과 표 — 유형 · 이름 · 서열 · 최소 / 최대 / 평균 Tm · 축퇴 염기 수 · 패턴 수 · 길이 · Tag · 우클릭 복사</p></div>
+      <div class="sc"><div class="sh">ⓓ 추가 서열 입력</div><div class="mini"><div class="mrow"><span class="plus">+</span></div><div class="mline fill lock"><em>원 서열 잠금</em></div><div class="mline fill"><em class="g">바뀐 염기 표시</em></div></div><p>특정 유형은 [+] 로 위치별 서열 추가 · 추가하면 원 서열 잠금 · 결과는 요약(접힘) · 개별(펼침)</p></div>
+    </div>
+    <p class="note">ⓒ 의 결과 값은 예시입니다.</p>
+
+    <h4>기획 변경 기록 — 기획서에 날짜와 함께 남김</h4>
+    <div class="table-wrap"><table>
+      <tr><th>날짜</th><th>변경</th><th>영향</th></tr>
+      <tr><td class="y">2025.11.28</td><td>추가 입력 서열의 표시 방식 변경 — 상보 서열 → 입력한 원 서열 그대로</td><td>화면 설명 · 테스트 케이스 기대 결과 수정</td></tr>
+      <tr><td class="y">2025.12.03</td><td>추가 입력칸이 하나라도 생기면 원 서열 수정 잠금 · 안내 문구 수정</td><td>상태 케이스 ⓓ 추가</td></tr>
+      <tr><td class="y">2025.12.04</td><td>결과 표에 축퇴 염기 수 · 패턴 수 컬럼 추가 — 예) 서열에 R(A/G) · Y(C/T) 가 있으면 2 × 2 = 4 패턴</td><td>결과 화면(계산 후 상태) 설명 · 테스트 케이스 추가</td></tr>
+    </table></div>
+    <p class="note">개발 · QA 는 기획서 하나만 보고 최신 기준을 확인합니다. 바뀐 항목은 같은 번호의 테스트 케이스까지 함께 고칩니다.</p>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#p2">다음 · 기획서 → 테스트 케이스 →</a></div>
+  </div>
+</section>
+
+<!-- P2 -->
+<section class="ch" id="p2">
+  <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
+    <div class="kicker">기획 실무 ③ · 기획서에서 테스트 케이스로</div>
+    <h2>같은 화면, 테스트 케이스 57건</h2>
+    <div class="rs"><div><span>방식</span>설명 번호 하나 = 기본 확인 1건 + 규칙마다 하위 확인 1건씩</div><div><span>작성</span>본인이 만든 추출 규칙으로 기획서에서 초안 생성 → QA 외주(펜타웍스)가 다듬어 등록 · 수행</div><div><span>결과</span>57건 수행 — Passed 52 · Blocked 3 · N/A 2 (Azure DevOps Test Plans)</div></div>
+    <div class="q"><div class="k">질문</div><p>기획이 바뀌었을 때, 고쳐야 할 테스트 케이스를 바로 찾을 수 있는가</p></div>
+
+    <h4>이름 규칙 — 기획서 번호가 그대로 들어감</h4>
+    <div class="tcname"><code>[TX4.3_#4_3_Tm Calculator_Input] Primer Oligo name 이 25자 초과인 경우, 입력 불가 및 Toast popup 노출 확인</code>
+      <div class="legend"><span><b>TX4.3</b> 화면 ID (임의 번호)</span><span><b>#4</b> 기획서 설명 번호 (Primer 입력)</span><span><b>_3</b> 그 번호 안의 3번째 판정</span><span><b>뒤</b> 화면 이름 · 확인 내용</span></div>
+      <p class="note">※ 화면 ID 는 임의 번호로 바꿈 (번호 체계는 실제와 같음) · 화면 이름도 줄여 씀</p></div>
+
+    <h4>실제 테스트 케이스 3건</h4>
+    <div class="grid3">
+      <div class="tc"><div class="id">#1_1 · Passed</div><div class="t">올리고 150개 초과 입력</div><dl><dt>사전조건</dt><dd>로그인 · 도구 › Tm Calculator 진입</dd><dt>스텝</dt><dd>직접 입력 · 붙여넣기로 150개 초과 입력</dd><dt>기대 결과</dt><dd>초과분 즉시 제외 · 안내 <code>You can enter up to 150 oligos.</code></dd></dl></div>
+      <div class="tc"><div class="id">#4_3 · Passed</div><div class="t">Primer 이름 25자 초과</div><dl><dt>사전조건</dt><dd>로그인 · 도구 › Tm Calculator 진입</dd><dt>스텝</dt><dd>Primer 이름에 25자 넘게 입력</dd><dt>기대 결과</dt><dd>초과분 입력 불가 · 안내 <code>…25 characters or less.</code></dd></dl></div>
+      <div class="tc blk"><div class="id">#4_4 · Blocked</div><div class="t">Primer 서열 길이 범위</div><dl><dt>사전조건</dt><dd>로그인 · 도구 › Tm Calculator 진입</dd><dt>스텝</dt><dd>15자 미만 · 50자 초과 서열을 붙여 넣고 칸에서 벗어남</dd><dt>기대 결과</dt><dd>붙여 넣은 값 즉시 삭제 · 길이 안내</dd></dl></div>
+    </div>
+    <p class="note">Blocked = 선행 조건 때문에 수행하지 못한 케이스. 수행 결과는 케이스마다 남겨, 결함 등록 · 재검증 대상을 바로 고릅니다.</p>
+
+    <h4>기획서 번호 ↔ 테스트 케이스 수</h4>
+    <div class="table-wrap"><table class="trace">
+      <tr><th>번호</th><th>기획 항목</th><th>건수</th><th>판정 예</th></tr>
+      <tr><td class="y">#0</td><td>화면 구성</td><td class="n">3</td><td>영역 배치 · 홈 이동</td></tr>
+      <tr><td class="y">#1</td><td>올리고 입력</td><td class="n">2</td><td>150개 초과 시 제외 · 안내</td></tr>
+      <tr><td class="y">#2 · #3</td><td>초기화 · 효소 선택</td><td class="n">4</td><td>Reset 범위 · 필수 선택</td></tr>
+      <tr><td class="y">#4</td><td>Primer 입력</td><td class="n">8</td><td>붙여넣기 위치 · 이름 25자 · 서열 15 ~ 50자</td></tr>
+      <tr><td class="y">#4.1</td><td>유형 자동 분류</td><td class="n">7</td><td>특수 염기 위치별 분류 결과</td></tr>
+      <tr><td class="y">#5</td><td>Probe 입력</td><td class="n">8</td><td>Primer 와 같은 입력 규칙</td></tr>
+      <tr><td class="y">#6 · #6.1</td><td>Pitcher · Catcher · Tag</td><td class="n">10</td><td>Tag 필수 · 기본값 12</td></tr>
+      <tr><td class="y">#7</td><td>Apply</td><td class="n">6</td><td>활성 · 비활성 전환 조건</td></tr>
+      <tr><td class="y">#8</td><td>추가 서열 입력</td><td class="n">9</td><td>입력칸 추가 · 원 서열 잠금 · 초록 표시</td></tr>
+      <tr class="now"><td class="y">합계</td><td>설명 12개 항목</td><td class="n">57</td><td>Passed 52 · Blocked 3 · N/A 2</td></tr>
+    </table></div>
+    <p class="note">등록본과 지금 기획서를 대조하면 번호가 어긋난 곳이 있습니다. 번호 없는 설명 항목(추가 서열 입력)이 #8 로 등록됐고, 기획서의 8번(매뉴얼)에는 케이스가 없습니다. 기획서와 케이스 번호를 따로 관리하면 생기는 어긋남이라, 2026.10 팀 공용 도구는 케이스 번호를 기획서 번호에서 그대로 가져옵니다.</p>
+
+    <h4>쓰는 사람에서 뽑아내는 장치로</h4>
+    <div class="flow"><span>2023 · 외주가 작성 → 1차 검사 관리</span><i>→</i><span>2025 · 업데이트 화면 직접 전수 테스트</span><i>→</i><span>2026 · 기획서에서 초안을 뽑는 규칙 (v1 → v5.7) · 도구 화면 초안 910건 → QA 가 464건 등록</span><i>→</i><span>팀 공용 도구 · 159화면 → 초안 1,778건 · 신규 팀원 실습 완료</span></div>
+    <ul>
+      <li>추출 규칙 — 기획서 번호를 그대로 쓰고, 하위 판정은 <code>_k</code>, 화면 구성 확인은 <code>#0</code></li>
+      <li>규칙을 지켰는지는 사람이 눈으로 보지 않고 스크립트로 판정</li>
+      <li>테스트 케이스는 본인 단독 작성이 아님 — 2026년의 기여는 기획서에서 케이스를 뽑아내는 규칙과 도구</li>
+    </ul>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#p3">다음 · 공통 정책 →</a></div>
+  </div>
+</section>
+
+<!-- P3 -->
+<section class="ch" id="p3">
+  <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
+    <div class="kicker">기획 실무 ④ · 공통 정책과 화면 일관성</div>
+    <h2>정책 하나가 바뀌면, 영향 화면부터 찾는다</h2>
+    <div class="rs"><div><span>규모</span>공통 정책 230개 규칙 · 기획 화면 800여 개 · 이 사례 화면에는 정책 6개 적용</div><div><span>장치</span>기획 허브에서 정책 변경 → 영향 화면 자동 추출 → 화면 설명 · 테스트 케이스 갱신</div></div>
+    <div class="q"><div class="k">질문</div><p>"필수 항목은 * 로 표시한다" 같은 규칙을 800개 화면에서 어떻게 똑같이 지키게 하나</p></div>
+    <div class="two">
+      <div class="card"><div class="t">이 화면에 적용된 정책</div><ul><li>필수 입력(*) 표기</li><li>입력 · 데이터 공통 제약 (글자 수 · 허용 문자)</li><li>공통 컴포넌트 기본 동작 (표 · 버튼 · 드롭다운)</li><li>상단 경로(Breadcrumb) 이동</li><li>개발 관리 공통 결정 사항</li><li>정책끼리 충돌할 때의 우선순위 원칙</li></ul></div>
+      <div class="card"><div class="t">운영 방식</div><ul><li>정책은 별도 문서 한 곳에서만 고침 — 화면 설명에는 정책 ID 만 연결</li><li>정책을 고치면 그 정책을 쓰는 화면 목록을 먼저 뽑아 검토 → 승인한 것만 반영</li><li>화면 설명의 번호 · 제목 오류 168건 일괄 수정 · 화면 간 연결 · 제약 누락을 주기적으로 점검</li><li>정책을 규칙 단위로 정리한 이유 — 디자이너 1명을 뺀 팀원 전원이 바이오 전공. 같은 기준을 정확히 이해해야 기획 · 검증을 나눠 맡을 수 있음 → 적응 시간 단축</li></ul></div>
+    </div>
+    <div class="carry"><div class="k">가져간 것</div><p>화면이 많아질수록 기획서는 문서가 아니라 데이터로 관리해야 한다. 번호 · ID · 정책을 연결해 두면, 바뀐 것의 영향을 사람이 기억하지 않아도 찾을 수 있다.</p></div>
+    <div class="carry"><div class="k">다음</div><p>연구원뿐 아니라 더 많은 사용자가 쓰는 서비스를 기획하고 싶습니다. 사용자 폭이 넓어질수록 입력 제약 · 상태 · 안내 문구를 화면마다 같은 기준으로 맞추는 일이 더 중요해지고, 이 방식을 그대로 가져갑니다.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#before">다음 · 바이오 R&amp;D →</a></div>
+  </div>
+</section>
+
+</div>
+
+<div class="view" data-view="before">
 <!-- ================= BEFORE ================= -->
 <section class="part" id="before">
   <div class="wrap">
-    <div class="label">PART 2 · 바이오 R&amp;D · 2005 – 2020</div>
+    <div class="label">PART 3 · 바이오 R&amp;D · 2005 – 2020</div>
     <h2>기획의 기반이 된 바이오 R&amp;D</h2>
     <p class="lead">의료 · 바이오 서비스를 기획할 때 전문가와 같은 언어로 이야기할 수 있는 이유입니다.</p>
   </div>
@@ -408,6 +772,7 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
 <!-- Progenia -->
 <section class="ch" id="b1">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">프로지니어(주) · 2020.01 – 2020.06 · 과장</div>
     <h2>핵산 구조 기반 신규 진단기술 PoC — 암 바이오마커 검출</h2>
     <div class="rs"><div><span>역할</span>신규 진단기술 개념 검증(PoC) 담당</div><div><span>주요성과</span>임상 적용 가능성을 데이터로 판단(No-Go) · 대안 컨셉 2종(bDNA · Hybrid Capture) 설계</div></div>
@@ -419,12 +784,14 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <li><b>판단</b> — 최적화한 조건에서도 민감도가 임상 적용 기준에 못 미친다고 결론. 신호를 증폭하는 대안 컨셉 2종(bDNA · Hybrid Capture)을 설계하고 재료를 조사</li>
     </ul>
     <div class="carry"><div class="k">가져간 것</div><p>가설 → 실험 → 데이터로 Go/No-Go를 판단하는 방식. 그리고 진단 결과를 좌우하는 것이 시약만이 아니라는 확신 → SW 기획으로 커리어 전환.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#b2">다음 · 원료 내재화 →</a></div>
   </div>
 </section>
 
 <!-- Rollingstone freelance -->
 <section class="ch" id="b2">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">롤링스톤(주) (구. 미코바이오메드) · 2018.07 – 2019.08 · 프리랜서</div>
     <h2>수입 의존 진단 핵심 원료의 자체 생산 기술 개발</h2>
     <div class="rs"><div><span>역할</span>산학 프로젝트(경희대 · 롤링스톤) 수행 연구원</div><div><span>주요성과</span>4종 생산 클론 · 제작 SOP 납품 · 학교 · 회사 생산 검증 3회 완료</div></div>
@@ -440,12 +807,14 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <li>학교 1회 · 회사 2회 <b>생산 검증 3회</b> 완료</li>
       <li>병행 업무 — HIV · B형 · C형 간염 진단 시약 설계, 진단 제품 30여 종 검사 장비 최적화</li>
     </ul>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#b3">다음 · 진단 제품 개발 →</a></div>
   </div>
 </section>
 
 <!-- Rollingstone full-time -->
 <section class="ch" id="b3">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">롤링스톤(주) (구. 미코바이오메드) · 2014.08 – 2018.06 · 선임연구원 · 팀장</div>
     <h2>감염병 진단 제품 개발 · 식약처 인허가 4건</h2>
     <div class="rs"><div><span>역할</span>진단 제품 개발 · 성능 검증 · 인허가 담당 팀장</div><div><span>주요성과</span>식약처 의료기기 인허가 4개 제품 · 해외 임상 2건 · 정부 R&amp;D 과제 6건(60억 원 이상) 실무 총괄</div></div>
@@ -495,12 +864,14 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <div class="res"><div class="n">특허 출원 · 우수사원상</div><div class="l">폐렴균 검출 특허 출원 2건 · 3개 부서 협업 프로젝트로 연말 우수사원상</div></div>
     </div>
     <div class="carry"><div class="k">가져간 것</div><p>같은 시약이라도 분석 알고리즘과 장비 설정에 따라 결과가 달라진다는 것을 직접 확인. 시약을 아는 사람이 소프트웨어를 정의하면 연구원의 문제를 더 정확히 풀 수 있다.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#b4">다음 · 대학원 연구 →</a></div>
   </div>
 </section>
 
 <!-- Graduate -->
 <section class="ch" id="b4">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <div class="kicker">경희대학교 분자바이러스학 실험실 · 2005 – 2014</div>
     <h2>바이러스를 데이터로 본 연구자</h2>
     <div class="q"><div class="k">질문</div><p>물속에 있는지조차 보이지 않는 바이러스를 어떻게 찾고, 오염을 어떻게 예측하나</p></div>
@@ -512,12 +883,17 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <li>6년간 모은 <b>1,300여 건 데이터</b>로 노로바이러스 오염 예측 모델 제시 — 로지스틱 회귀 · 의사결정나무 (SPSS · SAS)</li>
     </ul>
     <div class="carry"><div class="k">가져간 것</div><p>현상을 수치로 모으고 모델로 설명하는 습관, 과제를 처음부터 끝까지 책임지는 방식.</p></div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#records">다음 · 학력 · 특허 →</a></div>
   </div>
 </section>
 
+</div>
+
+<div class="view" data-view="records">
 <!-- ================= RECORDS ================= -->
 <section id="records">
   <div class="wrap">
+    <a class="toplink" href="#map">← 사례 목록</a>
     <h2>학력 · 수상 · 특허 · 연구</h2>
     <div class="table-wrap">
       <table>
@@ -578,8 +954,11 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
       <span>Python</span><span>SQL</span><span>Claude Code</span><span>RAG · Vector DB</span><span>MCP</span><span>Docker</span>
       <span>분자진단</span><span>바이러스학</span><span>진단검사의학</span><span>의료기기 인허가</span><span>통계 분석 (SPSS · SAS)</span>
     </div>
+    <div class="back"><a href="#map">← 사례 목록</a><a href="#top">맨 위로 ↑</a></div>
   </div>
 </section>
+
+</div>
 
 <footer>
   <div class="wrap">
@@ -588,5 +967,27 @@ footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var
   </div>
 </footer>
 
+<script>
+(function () {
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('nav a[data-v]'));
+  function show() {
+    var id = decodeURIComponent(location.hash.slice(1)) || 'top';
+    var el = document.getElementById(id) || document.getElementById('top');
+    var v = el.closest('.view') || views[0];
+    views.forEach(function (x) { x.classList.toggle('on', x === v); });
+    tabs.forEach(function (a) { a.classList.toggle('on', a.getAttribute('data-v') === v.getAttribute('data-view')); });
+    var first = v.querySelector('header, section');
+    requestAnimationFrame(function () {
+      var h = document.documentElement, b = h.style.scrollBehavior;
+      h.style.scrollBehavior = 'auto';
+      if (el === first) { window.scrollTo(0, 0); } else { el.scrollIntoView(); }
+      h.style.scrollBehavior = b;
+    });
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
 </body>
 </html>

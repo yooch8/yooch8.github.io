@@ -118,7 +118,11 @@ summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 details[open] summary { margin-bottom: 10px; }
 footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var(--mute); font-size: 14px; }
 footer .ct { color: var(--ink); font-size: 16px; font-weight: 700; }
-footer .ct-l { font-size: 16px; font-weight: 700; margin: 4px 0 12px; }
+footer .ct-l { font-size: 16px; font-weight: 700; margin: 8px 0 14px; }
+footer .reveal { font: inherit; font-size: 15px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--line); border-radius: 10px; padding: 8px 16px; cursor: pointer; }
+footer .ct-print { display: none; }
+html:not(.js) footer .reveal { display: none; }
+html:not(.js) footer .ct-print { display: inline; }
 
 code { font-family: ui-monospace, Consolas, "D2Coding", monospace; font-size: .86em; background: var(--bg2); border-radius: 5px; padding: 1px 5px; color: var(--ink); overflow-wrap: anywhere; }
 
@@ -224,6 +228,8 @@ a.mc .mn::after { content: "  →"; color: var(--accent); }
   section { padding-block: 22px; }
   .ch { break-before: page; }
   .js .view { display: block !important; }
+  footer .reveal { display: none; }
+  footer .ct-print { display: inline; }
   .back { display: none; }
   .toplink { display: block; float: right; font-size: 11px; font-weight: 700; color: var(--accent); margin-top: 2px; }
   .part { break-before: page; }
@@ -966,7 +972,7 @@ a.mc .mn::after { content: "  →"; color: var(--accent); }
 <footer id="contact">
   <div class="wrap">
     <div class="ct">함께 이야기 나누고 싶으시면 편하게 연락 주세요.</div>
-    <div class="ct-l"><a href="mailto:yooch@khu.ac.kr">yooch@khu.ac.kr</a> · <a href="tel:01088879165">010-8887-9165</a></div>
+    <div class="ct-l"><button type="button" class="reveal" data-e="eW9vY2hAa2h1LmFjLmty">이메일 보기</button><span class="ct-print">이메일 — yooch8.github.io 의 「연락하기」에서 확인</span></div>
     유창훈 · Product Owner · 바이오 × IT 서비스 기획 · 2026.10 기준
   </div>
 </footer>
@@ -991,6 +997,13 @@ a.mc .mn::after { content: "  →"; color: var(--accent); }
   }
   window.addEventListener('hashchange', show);
   show();
+  var r = document.querySelector('footer .reveal');
+  if (r) r.addEventListener('click', function () {
+    var e = atob(r.getAttribute('data-e'));
+    var a = document.createElement('a');
+    a.href = 'mail' + 'to:' + e; a.textContent = e;
+    r.replaceWith(a);
+  });
 })();
 </script>
 </body>
